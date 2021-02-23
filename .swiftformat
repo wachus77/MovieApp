@@ -1,0 +1,18 @@
+# file options
+
+--symlinks ignore
+--swiftversion 5.3
+--exclude Carthage
+--exclude Pods
+--exclude xcframework
+--exclude strings_obfuscation
+
+# format options
+
+--commas inline
+--trimwhitespace nonblank-lines
+--decimalgrouping 3,5
+
+# rules
+
+--disable redundantType,unusedArguments,strongOutlets,blankLinesAtStartOfScope,wrapMultilineStatementBraces,redundantNilInit
