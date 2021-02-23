@@ -10,7 +10,10 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    /// Application's foundation.
+    /// Keeps dependencies in the same place and allow to reuse them across entire application
+    /// without necessity to have multiple instances of one class which should be unique.
+    let appFoundation = DefaultAppFoundation()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
