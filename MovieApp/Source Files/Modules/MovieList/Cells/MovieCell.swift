@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MoviewCell: UICollectionViewCell {
+final class MovieCell: UICollectionViewCell {
     // MARK: Properties
 
     private let titleLabel: UILabel = {
@@ -46,12 +46,14 @@ final class MoviewCell: UICollectionViewCell {
     /// - Parameters:
     ///   - movie: movie object
     func setupCell(movie: Movie) {
+        titleLabel.text = movie.title
     }
 }
 
-extension MoviewCell: ViewSetupable {
+extension MovieCell: ViewSetupable {
     /// - SeeAlso: ViewSetupable.setupProperties
     func setupProperties() {
+        self.backgroundColor = .orange
     }
 
     /// - SeeAlso: ViewSetupable.setupViewHierarchy

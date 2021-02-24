@@ -22,6 +22,17 @@ final class MovieListViewController: BaseViewController<MovieListView, MovieList
         navigationItem.title = "Movie List"
 
         setupSearchController()
+
+        viewModel.setCompositionalLayout(collectionView: customView.collectionView, sectionForMovies: customView.collectionViewSectionForMovies)
+        customView.collectionView.register(dequeueableCell: MovieCell.self)
+    }
+
+    /// - SeeAlso: BaseViewController.setupProperties
+    override func setupProperties() {
+        viewModel.setDataSource(collectionView: customView.collectionView)
+        customView.collectionView.delegate = self
+
+
     }
 
     private func setupSearchController() {
@@ -35,5 +46,12 @@ final class MovieListViewController: BaseViewController<MovieListView, MovieList
 
 extension MovieListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
+        viewModel.loadMovies()
+    }
+}
+
+extension MovieListViewController: UICollectionViewDelegate {
+    /// - SeeAlso: UICollectionViewDelegate.collectionView(_:didSelectItemAt:)
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     }
 }

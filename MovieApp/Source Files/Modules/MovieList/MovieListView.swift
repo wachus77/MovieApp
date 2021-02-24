@@ -9,9 +9,12 @@ import UIKit
 
 final class MovieListView: BaseView {
 
-    let collectionViewSectionForAdverts: NSCollectionLayoutSection = {
+    let collectionViewSectionForMovies: NSCollectionLayoutSection = {
+        // let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                // heightDimension: .estimated(1))
+
         let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                heightDimension: .estimated(1))
+                                                heightDimension: .absolute(100))
         let item = NSCollectionLayoutItem(layoutSize: layoutSize)
 
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutSize, subitem: item, count: 2)
@@ -47,6 +50,6 @@ extension MovieListView: ViewSetupable {
 
     /// - SeeAlso: ViewSetupable.setupConstraints
     func setupConstraints() {
-        collectionView.addConstraints(equalToSuperview(with: .init(top: 0, left: 0, bottom: 0, right: 0), usingSafeArea: true))
+        collectionView.addConstraints(equalToSuperview(with: .init(top: 10, left: 0, bottom: 0, right: 0), usingSafeArea: true))
     }
 }

@@ -37,6 +37,8 @@
 		083BC91D25E58DD400F8833F /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083BC91C25E58DD400F8833F /* MovieListViewModel.swift */; };
 		08BAD08225E68EB6007795DC /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08125E68EB6007795DC /* Movie.swift */; };
 		08BAD08B25E68F8A007795DC /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08A25E68F8A007795DC /* MovieCell.swift */; };
+		08BAD09025E6A6C2007795DC /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */; };
+		08BAD09525E6A709007795DC /* Dequeuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD09425E6A709007795DC /* Dequeuable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		083BC91C25E58DD400F8833F /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
 		08BAD08125E68EB6007795DC /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		08BAD08A25E68F8A007795DC /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
+		08BAD09425E6A709007795DC /* Dequeuable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dequeuable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +214,7 @@
 				083BC8AA25E5855C00F8833F /* NavigationFlowController.swift */,
 				083BC8AF25E5858000F8833F /* FlowController.swift */,
 				083BC8B925E5862700F8833F /* NavigationDelegate.swift */,
+				08BAD09425E6A709007795DC /* Dequeuable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 				083BC8D625E587C400F8833F /* Array.swift */,
 				083BC8E525E588E700F8833F /* UIColor.swift */,
 				083BC8EA25E5897300F8833F /* UIView.swift */,
+				08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -472,6 +478,8 @@
 				083BC8A325E584B400F8833F /* ViewSetupable.swift in Sources */,
 				083BC8CE25E5875900F8833F /* CustomBackNavigationController.swift in Sources */,
 				083BC8EB25E5897300F8833F /* UIView.swift in Sources */,
+				08BAD09025E6A6C2007795DC /* UICollectionViewCell.swift in Sources */,
+				08BAD09525E6A709007795DC /* Dequeuable.swift in Sources */,
 				083BC8F125E589A500F8833F /* CallbackWrapper.swift in Sources */,
 				083BC84425E57C6400F8833F /* SceneDelegate.swift in Sources */,
 				083BC91D25E58DD400F8833F /* MovieListViewModel.swift in Sources */,

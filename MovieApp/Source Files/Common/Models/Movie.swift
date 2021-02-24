@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Movie {
+struct Movie: Codable, Hashable {
     let title: String
 }
