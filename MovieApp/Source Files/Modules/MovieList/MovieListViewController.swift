@@ -46,7 +46,7 @@ final class MovieListViewController: BaseViewController<MovieListView, MovieList
 
 extension MovieListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        viewModel.loadMovies()
+        viewModel.getMovies(searchText: searchController.searchBar.text)
     }
 }
 

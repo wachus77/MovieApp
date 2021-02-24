@@ -10,3 +10,9 @@ import Foundation
 struct Movie: Codable, Hashable {
     let title: String
 }
+
+extension Movie {
+    enum CodingKeys: String, CodingKey {
+        case title = "Title"
+    }
+}

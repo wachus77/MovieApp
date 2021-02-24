@@ -22,6 +22,7 @@ final class MovieListView: BaseView {
         group.interItemSpacing = .fixed(15)
 
         let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 15
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15)
 
         return section

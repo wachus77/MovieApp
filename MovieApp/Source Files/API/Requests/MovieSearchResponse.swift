@@ -9,5 +9,13 @@ import Foundation
 
 struct MovieSearchResponse: APIResponse {
     // MARK: Properties
-    let totalResult: String
+    let totalResults: String
+    let moviesList: [Movie]
+}
+
+extension MovieSearchResponse {
+    enum CodingKeys: String, CodingKey {
+        case totalResults
+        case moviesList = "Search"
+    }
 }

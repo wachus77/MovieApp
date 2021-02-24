@@ -17,13 +17,36 @@ final class MovieListViewModel {
     /// collectionView data source
     private(set) var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>!
 
+    /// - SeeAlso: AppFoundation.apiClient
+    private let apiClient: APIClient
+
+    // MARK: Initalization
+
+    /// Initializes an instance of the receiver.
+    ///
+    /// - Parameter apiClient: network tasks manager
+    init(apiClient: APIClient) {
+        self.apiClient = apiClient
+    }
+
     // MARK: Functions
 
+    func getMovies(searchText: String?) {
+        let request = MovieSearchRequest(search: searchText ?? "")
+
+        apiClient.perform(request: request, maxRetries: 1, maxRetryInterval: 15) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .success(response):
+                self.setMovies(movieList: response.moviesList)
+            case .failure:
+                print()
+            }
+        }
+    }
+
     /// set data source
-    func loadMovies() {
-
-        let movieList: [Movie] = [Movie(title: "TEST1"), Movie(title: "TEST2")]
-
+    func setMovies(movieList: [Movie]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
         snapshot.appendSections([.movies])
         snapshot.appendItems(movieList, toSection: .movies)
@@ -50,7 +73,7 @@ extension MovieListViewModel {
                 cell.setupCell(movie: movie)
                 return cell
             }
-
+            
         }
     }
 

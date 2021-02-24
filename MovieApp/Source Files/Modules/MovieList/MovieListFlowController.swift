@@ -25,7 +25,7 @@ final class MovieListFlowController: BaseNavigationFlowController {
     ///
     /// - Returns: Object of MovieListViewController
     private func setupMovieListScreen() -> UIViewController {
-        let movieListViewController = MovieListViewController(view: MovieListView(), viewModel: MovieListViewModel())
+        let movieListViewController = MovieListViewController(view: MovieListView(), viewModel: MovieListViewModel(apiClient: appFoundation.apiClient))
         return movieListViewController
     }
 }
