@@ -20,6 +20,8 @@ final class MovieListViewModel {
     /// - SeeAlso: AppFoundation.apiClient
     private let apiClient: APIClient
 
+    var currentRequestTask: URLSessionDataTask?
+
     // MARK: Initalization
 
     /// Initializes an instance of the receiver.
@@ -32,9 +34,9 @@ final class MovieListViewModel {
     // MARK: Functions
 
     func getMovies(searchText: String?) {
+        currentRequestTask?.cancel()
         let request = MovieSearchRequest(search: searchText ?? "")
-
-        apiClient.perform(request: request, maxRetries: 1, maxRetryInterval: 15) { [weak self] result in
+        currentRequestTask = apiClient.perform(request: request, maxRetries: 1, maxRetryInterval: 15) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case let .success(response):

@@ -29,12 +29,12 @@ extension URLSession {
     func perform(_ urlRequest: URLRequest,
                  maxRetries: Int = URLSession.maximumNumberOfRetries,
                  maxRetryInterval: TimeInterval,
-                 callback: @escaping Callback) {
+                 callback: @escaping Callback) -> URLSessionDataTask? {
         if maxRetries <= 0 {
             fatalError("maxRetries must be 1 or larger.")
         }
         let networkRequest = NetworkRequest(urlRequest, 0, maxRetries, retryUntil: Date().timeIntervalSince1970 + maxRetryInterval, callback)
-        authenticate(networkRequest)
+        return authenticate(networkRequest)
     }
 }
 
@@ -50,7 +50,7 @@ private extension URLSession {
     )
 
     /// Extra-step where `URLRequest`'s authorization should be handled, before actually performing the URLRequest in `execute()`
-    func authenticate(_ networkRequest: NetworkRequest) {
+    func authenticate(_ networkRequest: NetworkRequest) -> URLSessionDataTask? {
         let currentRetries = networkRequest.currentRetries
         let max = networkRequest.maxRetries
         let callback = networkRequest.callback
@@ -60,17 +60,17 @@ private extension URLSession {
         if (currentRetries >= max) || (Date().timeIntervalSince1970 > networkRequest.retryUntil) {
             //    Too many unsuccessful attemps
             callback(.failure(.inaccessible))
-            return
+            return nil
         }
         //    NOTE: this is the place to handle OAuth2
         //    or some other form of URLRequest‘s authorization
 
         //    now execute the request
-        execute(networkRequest)
+        return execute(networkRequest)
     }
 
     /// Creates the instance of `URLSessionDataTask`, performs it then lightly processes the response before calling `validate`.
-    func execute(_ networkRequest: NetworkRequest) {
+    func execute(_ networkRequest: NetworkRequest) -> URLSessionDataTask {
         let urlRequest = networkRequest.urlRequest
 
         let task = dataTask(with: urlRequest) { [unowned self] data, urlResponse, error in
@@ -78,6 +78,7 @@ private extension URLSession {
             self.validate(dataResult, for: networkRequest)
         }
         task.resume()
+        return task
     }
 
     /// Process results of `URLSessionDataTask` and converts it into `DataResult` instance

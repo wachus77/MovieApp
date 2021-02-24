@@ -36,7 +36,7 @@ final class DefaultAPIClient: NSObject, APIClient {
     // MARK: Functions
 
     /// - SeeAlso: APIClient.perform(request:completion:)
-    func perform<Request>(request: Request, maxRetries: Int = 5, maxRetryInterval: TimeInterval = 40, completion: @escaping (Result<Request.Response, APIClientError>) -> Void) where Request: APIRequest {
+    func perform<Request>(request: Request, maxRetries: Int = 5, maxRetryInterval: TimeInterval = 40, completion: @escaping (Result<Request.Response, APIClientError>) -> Void) -> URLSessionDataTask? where Request: APIRequest {
         // Create convenience completion closures that will be reused later.
         let resolveSuccess: (Request.Response) -> Void = { response in
             let result: Result<Request.Response, APIClientError> = .success(response)
@@ -70,7 +70,7 @@ final class DefaultAPIClient: NSObject, APIClient {
             }
 
             // perform the network request and retry automatically if needed
-            urlSession.perform(builtRequest, maxRetries: maxRetries, maxRetryInterval: maxRetryInterval) { [weak self] dataResult in
+            return urlSession.perform(builtRequest, maxRetries: maxRetries, maxRetryInterval: maxRetryInterval) { [weak self] dataResult in
                 // If API client instance doesn't exist, return.
                 guard let self = self else {
                     return
@@ -100,6 +100,7 @@ final class DefaultAPIClient: NSObject, APIClient {
             }
         } catch {
             resolveFailure(.requestBuildError(error), nil)
+            return nil
         }
     }
 }

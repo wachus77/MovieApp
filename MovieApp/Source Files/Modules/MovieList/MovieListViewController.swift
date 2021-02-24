@@ -46,7 +46,15 @@ final class MovieListViewController: BaseViewController<MovieListView, MovieList
 
 extension MovieListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        viewModel.getMovies(searchText: searchController.searchBar.text)
+        NSObject.cancelPreviousPerformRequests(withTarget: self)
+        perform(#selector(search(with:)), with: searchController.searchBar.text, afterDelay: 0.5)
+    }
+
+    /// Function called to search for the given text.
+    ///
+    /// - Parameter text: Text to search.
+    @objc private func search(with text: String) {
+        viewModel.getMovies(searchText: text)
     }
 }
 
