@@ -43,6 +43,11 @@
 		08BAD0A425E6B713007795DC /* APIClientConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0A325E6B713007795DC /* APIClientConfiguration.swift */; };
 		08BAD0A925E6B74F007795DC /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0A825E6B74F007795DC /* APIRequest.swift */; };
 		08BAD0AE25E6B83B007795DC /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0AD25E6B83B007795DC /* APIResponse.swift */; };
+		08BAD0B325E6B8E6007795DC /* APIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0B225E6B8E6007795DC /* APIRequestModel.swift */; };
+		08BAD0B825E6B90C007795DC /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0B725E6B90C007795DC /* Dictionary.swift */; };
+		08BAD0BD25E6B991007795DC /* APIClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0BC25E6B991007795DC /* APIClientError.swift */; };
+		08BAD0C225E6B9B8007795DC /* HumanReadableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0C125E6B9B8007795DC /* HumanReadableError.swift */; };
+		08BAD0C725E6BA0E007795DC /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0C625E6BA0E007795DC /* NSError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +110,11 @@
 		08BAD0A325E6B713007795DC /* APIClientConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientConfiguration.swift; sourceTree = "<group>"; };
 		08BAD0A825E6B74F007795DC /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		08BAD0AD25E6B83B007795DC /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		08BAD0B225E6B8E6007795DC /* APIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestModel.swift; sourceTree = "<group>"; };
+		08BAD0B725E6B90C007795DC /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		08BAD0BC25E6B991007795DC /* APIClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientError.swift; sourceTree = "<group>"; };
+		08BAD0C125E6B9B8007795DC /* HumanReadableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanReadableError.swift; sourceTree = "<group>"; };
+		08BAD0C625E6BA0E007795DC /* NSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +267,8 @@
 				083BC8E525E588E700F8833F /* UIColor.swift */,
 				083BC8EA25E5897300F8833F /* UIView.swift */,
 				08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */,
+				08BAD0B725E6B90C007795DC /* Dictionary.swift */,
+				08BAD0C625E6BA0E007795DC /* NSError.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -328,6 +340,9 @@
 				08BAD0A325E6B713007795DC /* APIClientConfiguration.swift */,
 				08BAD0A825E6B74F007795DC /* APIRequest.swift */,
 				08BAD0AD25E6B83B007795DC /* APIResponse.swift */,
+				08BAD0B225E6B8E6007795DC /* APIRequestModel.swift */,
+				08BAD0BC25E6B991007795DC /* APIClientError.swift */,
+				08BAD0C125E6B9B8007795DC /* HumanReadableError.swift */,
 			);
 			path = Abstraction;
 			sourceTree = "<group>";
@@ -492,14 +507,17 @@
 				083BC90125E58BEF00F8833F /* AppFlowController.swift in Sources */,
 				083BC8C525E5870100F8833F /* AppFoundation.swift in Sources */,
 				083BC89525E5840C00F8833F /* BaseViewController.swift in Sources */,
+				08BAD0B325E6B8E6007795DC /* APIRequestModel.swift in Sources */,
 				083BC8B525E5860D00F8833F /* BaseFlowController.swift in Sources */,
 				083BC8DC25E5886D00F8833F /* TransparentNavigationBar.swift in Sources */,
 				083BC8E625E588E700F8833F /* UIColor.swift in Sources */,
+				08BAD0BD25E6B991007795DC /* APIClientError.swift in Sources */,
 				083BC8AB25E5855C00F8833F /* NavigationFlowController.swift in Sources */,
 				083BC90825E58CB900F8833F /* MovieListFlowController.swift in Sources */,
 				083BC8E125E5889400F8833F /* PopBackView.swift in Sources */,
 				083BC8B025E5858000F8833F /* FlowController.swift in Sources */,
 				083BC89D25E5846C00F8833F /* BaseView.swift in Sources */,
+				08BAD0C725E6BA0E007795DC /* NSError.swift in Sources */,
 				083BC8BA25E5862700F8833F /* NavigationDelegate.swift in Sources */,
 				083BC8D725E587C400F8833F /* Array.swift in Sources */,
 				08BAD09B25E6B6C1007795DC /* DefaultAPIClientConfiguration.swift in Sources */,
@@ -513,7 +531,9 @@
 				08BAD0A925E6B74F007795DC /* APIRequest.swift in Sources */,
 				083BC8F125E589A500F8833F /* CallbackWrapper.swift in Sources */,
 				083BC84425E57C6400F8833F /* SceneDelegate.swift in Sources */,
+				08BAD0B825E6B90C007795DC /* Dictionary.swift in Sources */,
 				08BAD0A425E6B713007795DC /* APIClientConfiguration.swift in Sources */,
+				08BAD0C225E6B9B8007795DC /* HumanReadableError.swift in Sources */,
 				083BC91D25E58DD400F8833F /* MovieListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
