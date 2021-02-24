@@ -15,8 +15,6 @@ final class PopBackView: UIView {
         // TODO localizable
         label.text = "< Back"
         label.textColor = UIColor(light: .black, dark: .white)
-        // TODO fonts
-        //label.font = Fonts.responsive(.regular, ofSizes: [.small: 13, .medium: 14, .large: 16])
         label.accessibilityIdentifier = "Back"
         return label
     }()

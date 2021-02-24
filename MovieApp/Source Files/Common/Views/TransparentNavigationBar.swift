@@ -33,9 +33,7 @@ class TransparentNavigationBar: UINavigationBar {
     // MARK: Functions
 
     /// Navigation bar setup.
-    func setupBar() {
-        setTransparentBar()
-    }
+    func setupBar() {}
 
     /// Sets navigation bar as transparent.
     private func setTransparentBar() {

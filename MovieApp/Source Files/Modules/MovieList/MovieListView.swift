@@ -10,15 +10,15 @@ import UIKit
 final class MovieListView: BaseView {
 
     let collectionViewSectionForMovies: NSCollectionLayoutSection = {
-        // TODO
-        // let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                // heightDimension: .estimated(1))
+        let itemLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                    heightDimension: .fractionalHeight(1.0))
 
-        let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                heightDimension: .absolute(100))
-        let item = NSCollectionLayoutItem(layoutSize: layoutSize)
+        let item = NSCollectionLayoutItem(layoutSize: itemLayoutSize)
 
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutSize, subitem: item, count: 2)
+        let groupLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                heightDimension: .fractionalHeight(0.4))
+
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupLayoutSize, subitem: item, count: 2)
         group.interItemSpacing = .fixed(15)
 
         let section = NSCollectionLayoutSection(group: group)

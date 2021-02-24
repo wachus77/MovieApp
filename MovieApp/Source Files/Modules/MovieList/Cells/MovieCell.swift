@@ -14,10 +14,14 @@ final class MovieCell: UICollectionViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        //label.font = Fonts.responsive(.regular, ofSizes: [.small: 29, .medium: 30, .large: 32])
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
+    }()
+
+    private let titleContainerView: UIView = {
+        let view = UIView()
+        return view
     }()
 
     private let imageView: UIImageView = {
@@ -59,17 +63,23 @@ final class MovieCell: UICollectionViewCell {
 extension MovieCell: ViewSetupable {
     /// - SeeAlso: ViewSetupable.setupProperties
     func setupProperties() {
-        self.backgroundColor = .orange
+        titleContainerView.backgroundColor = UIColor.orange.withAlphaComponent(0.7)
     }
 
     /// - SeeAlso: ViewSetupable.setupViewHierarchy
     func setupViewHierarchy() {
-        addSubviews([imageView, titleLabel])
+        titleContainerView.addSubview(titleLabel)
+        addSubviews([imageView, titleContainerView])
     }
 
     /// - SeeAlso: ViewSetupable.setupConstraints
     func setupConstraints() {
-        titleLabel.addConstraints(equalToSuperview(with: .init(top: 0, left: 15, bottom: -5, right: -15), usingSafeArea: false))
+        titleLabel.addConstraints(equalToSuperview(with: .init(top: 5, left: 15, bottom: -5, right: -15), usingSafeArea: false))
+        titleContainerView.addConstraints([
+            equal(self, \.trailingAnchor),
+            equal(self, \.leadingAnchor),
+            equal(self, \.bottomAnchor)
+        ])
         imageView.addConstraints(equalToSuperview(with: .init(top: 0, left: 0, bottom: 0, right: 0), usingSafeArea: false))
     }
 }
