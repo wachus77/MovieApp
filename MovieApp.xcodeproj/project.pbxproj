@@ -39,6 +39,10 @@
 		08BAD08B25E68F8A007795DC /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08A25E68F8A007795DC /* MovieCell.swift */; };
 		08BAD09025E6A6C2007795DC /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */; };
 		08BAD09525E6A709007795DC /* Dequeuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD09425E6A709007795DC /* Dequeuable.swift */; };
+		08BAD09B25E6B6C1007795DC /* DefaultAPIClientConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD09A25E6B6C1007795DC /* DefaultAPIClientConfiguration.swift */; };
+		08BAD0A425E6B713007795DC /* APIClientConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0A325E6B713007795DC /* APIClientConfiguration.swift */; };
+		08BAD0A925E6B74F007795DC /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0A825E6B74F007795DC /* APIRequest.swift */; };
+		08BAD0AE25E6B83B007795DC /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0AD25E6B83B007795DC /* APIResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +101,10 @@
 		08BAD08A25E68F8A007795DC /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
 		08BAD09425E6A709007795DC /* Dequeuable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dequeuable.swift; sourceTree = "<group>"; };
+		08BAD09A25E6B6C1007795DC /* DefaultAPIClientConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAPIClientConfiguration.swift; sourceTree = "<group>"; };
+		08BAD0A325E6B713007795DC /* APIClientConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientConfiguration.swift; sourceTree = "<group>"; };
+		08BAD0A825E6B74F007795DC /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		08BAD0AD25E6B83B007795DC /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +184,7 @@
 		083BC89125E583A200F8833F /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
+				08BAD09925E6B6AD007795DC /* API */,
 				083BC90525E58C8900F8833F /* Modules */,
 				083BC8C325E586C300F8833F /* Application */,
 				083BC89225E583B500F8833F /* Common */,
@@ -302,6 +311,25 @@
 				08BAD08A25E68F8A007795DC /* MovieCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		08BAD09925E6B6AD007795DC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				08BAD0A225E6B6F7007795DC /* Abstraction */,
+				08BAD09A25E6B6C1007795DC /* DefaultAPIClientConfiguration.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		08BAD0A225E6B6F7007795DC /* Abstraction */ = {
+			isa = PBXGroup;
+			children = (
+				08BAD0A325E6B713007795DC /* APIClientConfiguration.swift */,
+				08BAD0A825E6B74F007795DC /* APIRequest.swift */,
+				08BAD0AD25E6B83B007795DC /* APIResponse.swift */,
+			);
+			path = Abstraction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,14 +502,18 @@
 				083BC89D25E5846C00F8833F /* BaseView.swift in Sources */,
 				083BC8BA25E5862700F8833F /* NavigationDelegate.swift in Sources */,
 				083BC8D725E587C400F8833F /* Array.swift in Sources */,
+				08BAD09B25E6B6C1007795DC /* DefaultAPIClientConfiguration.swift in Sources */,
 				083BC84225E57C6400F8833F /* AppDelegate.swift in Sources */,
+				08BAD0AE25E6B83B007795DC /* APIResponse.swift in Sources */,
 				083BC8A325E584B400F8833F /* ViewSetupable.swift in Sources */,
 				083BC8CE25E5875900F8833F /* CustomBackNavigationController.swift in Sources */,
 				083BC8EB25E5897300F8833F /* UIView.swift in Sources */,
 				08BAD09025E6A6C2007795DC /* UICollectionViewCell.swift in Sources */,
 				08BAD09525E6A709007795DC /* Dequeuable.swift in Sources */,
+				08BAD0A925E6B74F007795DC /* APIRequest.swift in Sources */,
 				083BC8F125E589A500F8833F /* CallbackWrapper.swift in Sources */,
 				083BC84425E57C6400F8833F /* SceneDelegate.swift in Sources */,
+				08BAD0A425E6B713007795DC /* APIClientConfiguration.swift in Sources */,
 				083BC91D25E58DD400F8833F /* MovieListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@ import UIKit
 final class MovieListView: BaseView {
 
     let collectionViewSectionForMovies: NSCollectionLayoutSection = {
+        // TODO
         // let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                 // heightDimension: .estimated(1))
 
