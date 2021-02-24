@@ -9,10 +9,12 @@ import Foundation
 
 struct Movie: Codable, Hashable {
     let title: String
+    let posterUrl: String
 }
 
 extension Movie {
     enum CodingKeys: String, CodingKey {
         case title = "Title"
+        case posterUrl = "Poster"
     }
 }

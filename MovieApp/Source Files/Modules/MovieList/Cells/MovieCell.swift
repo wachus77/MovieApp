@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class MovieCell: UICollectionViewCell {
     // MARK: Properties
@@ -47,6 +48,11 @@ final class MovieCell: UICollectionViewCell {
     ///   - movie: movie object
     func setupCell(movie: Movie) {
         titleLabel.text = movie.title
+
+        guard let url = URL(string: movie.posterUrl) else { return }
+
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: url)
     }
 }
 
