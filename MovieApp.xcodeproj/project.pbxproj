@@ -48,6 +48,9 @@
 		08BAD0BD25E6B991007795DC /* APIClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0BC25E6B991007795DC /* APIClientError.swift */; };
 		08BAD0C225E6B9B8007795DC /* HumanReadableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0C125E6B9B8007795DC /* HumanReadableError.swift */; };
 		08BAD0C725E6BA0E007795DC /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0C625E6BA0E007795DC /* NSError.swift */; };
+		08BAD0CC25E6BB73007795DC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0CB25E6BB73007795DC /* APIClient.swift */; };
+		08BAD0D125E6BC57007795DC /* DefaultAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0D025E6BC57007795DC /* DefaultAPIClient.swift */; };
+		08BAD0D625E6BD58007795DC /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD0D525E6BD58007795DC /* URLSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +118,9 @@
 		08BAD0BC25E6B991007795DC /* APIClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientError.swift; sourceTree = "<group>"; };
 		08BAD0C125E6B9B8007795DC /* HumanReadableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanReadableError.swift; sourceTree = "<group>"; };
 		08BAD0C625E6BA0E007795DC /* NSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
+		08BAD0CB25E6BB73007795DC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		08BAD0D025E6BC57007795DC /* DefaultAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAPIClient.swift; sourceTree = "<group>"; };
+		08BAD0D525E6BD58007795DC /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +275,7 @@
 				08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */,
 				08BAD0B725E6B90C007795DC /* Dictionary.swift */,
 				08BAD0C625E6BA0E007795DC /* NSError.swift */,
+				08BAD0D525E6BD58007795DC /* URLSession.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -328,8 +335,10 @@
 		08BAD09925E6B6AD007795DC /* API */ = {
 			isa = PBXGroup;
 			children = (
+				08BAD0DA25E6BF77007795DC /* Requests */,
 				08BAD0A225E6B6F7007795DC /* Abstraction */,
 				08BAD09A25E6B6C1007795DC /* DefaultAPIClientConfiguration.swift */,
+				08BAD0D025E6BC57007795DC /* DefaultAPIClient.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -343,8 +352,16 @@
 				08BAD0B225E6B8E6007795DC /* APIRequestModel.swift */,
 				08BAD0BC25E6B991007795DC /* APIClientError.swift */,
 				08BAD0C125E6B9B8007795DC /* HumanReadableError.swift */,
+				08BAD0CB25E6BB73007795DC /* APIClient.swift */,
 			);
 			path = Abstraction;
+			sourceTree = "<group>";
+		};
+		08BAD0DA25E6BF77007795DC /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,6 +517,7 @@
 			files = (
 				08BAD08B25E68F8A007795DC /* MovieCell.swift in Sources */,
 				083BC91525E58D9800F8833F /* MovieListView.swift in Sources */,
+				08BAD0D625E6BD58007795DC /* URLSession.swift in Sources */,
 				083BC91025E58D7400F8833F /* MovieListViewController.swift in Sources */,
 				083BC8BF25E5869A00F8833F /* BaseNavigationFlowController.swift in Sources */,
 				083BC8FC25E58B2400F8833F /* DefaultAppFoundation.swift in Sources */,
@@ -523,6 +541,7 @@
 				08BAD09B25E6B6C1007795DC /* DefaultAPIClientConfiguration.swift in Sources */,
 				083BC84225E57C6400F8833F /* AppDelegate.swift in Sources */,
 				08BAD0AE25E6B83B007795DC /* APIResponse.swift in Sources */,
+				08BAD0CC25E6BB73007795DC /* APIClient.swift in Sources */,
 				083BC8A325E584B400F8833F /* ViewSetupable.swift in Sources */,
 				083BC8CE25E5875900F8833F /* CustomBackNavigationController.swift in Sources */,
 				083BC8EB25E5897300F8833F /* UIView.swift in Sources */,
@@ -531,6 +550,7 @@
 				08BAD0A925E6B74F007795DC /* APIRequest.swift in Sources */,
 				083BC8F125E589A500F8833F /* CallbackWrapper.swift in Sources */,
 				083BC84425E57C6400F8833F /* SceneDelegate.swift in Sources */,
+				08BAD0D125E6BC57007795DC /* DefaultAPIClient.swift in Sources */,
 				08BAD0B825E6B90C007795DC /* Dictionary.swift in Sources */,
 				08BAD0A425E6B713007795DC /* APIClientConfiguration.swift in Sources */,
 				08BAD0C225E6B9B8007795DC /* HumanReadableError.swift in Sources */,

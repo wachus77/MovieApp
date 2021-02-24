@@ -21,6 +21,11 @@ enum APIClientError: HumanReadableError {
     case serverError(HumanReadableError)
     /// A custom error has occurred.
     case customError(HumanReadableError)
+    /// request inaccessible after retries
+    case inaccessible
+    /// `URLSession` errors are passed-through, handle as appropriate.
+    /// needed to determine whether a retry of request should happen
+    case urlError(URLError)
     /// / Something really weird happend. Cannot detect the error.
     case unknownError
 
@@ -59,9 +64,32 @@ enum APIClientError: HumanReadableError {
             return error.humanReadableDescription
         case let .customError(error):
             return error.humanReadableDescription
+        case .inaccessible:
+            return "inaccessible"
+        case let .urlError(urlError):
+            return "url error: \(urlError.localizedDescription)"
         case .unknownError:
             return "An unknown network error has occurred."
         }
+    }
+
+    /// Used to determine whether a network request should be retried
+    var shouldRetry: Bool {
+        switch self {
+        case let .urlError(urlError):
+            //  retry for network issues
+            switch urlError.code {
+            case URLError.timedOut,
+                 URLError.cannotFindHost,
+                 URLError.cannotConnectToHost,
+                 URLError.networkConnectionLost,
+                 URLError.dnsLookupFailed:
+                return true
+            default: break
+            }
+        default: break
+        }
+        return false
     }
 
     // MARK: Functions
