@@ -7,5 +7,6 @@
 
 /// Protocol which will be used by almost all flow controllers in the application.
 protocol AppFoundation {
-
+    /// The common interface of api client used by the application.
+    var apiClient: APIClient { get }
 }
