@@ -8,12 +8,14 @@
 import Foundation
 
 struct Movie: Codable, Hashable {
+    let id: String
     let title: String
     let posterUrl: String
 }
 
 extension Movie {
     enum CodingKeys: String, CodingKey {
+        case id = "imdbID"
         case title = "Title"
         case posterUrl = "Poster"
     }

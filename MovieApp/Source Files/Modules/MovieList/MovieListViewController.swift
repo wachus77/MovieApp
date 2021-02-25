@@ -26,14 +26,14 @@ final class MovieListViewController: BaseViewController<MovieListView, MovieList
 
         viewModel.setCompositionalLayout(collectionView: customView.collectionView, sectionForMovies: customView.collectionViewSectionForMovies)
         customView.collectionView.register(dequeueableCell: MovieCell.self)
+        customView.collectionView.registerForSupplementaryView(kind: MovieListView.sectionFooterElementKind, dequeueableView: MoviesFooterSuplementaryView.self)
     }
 
     /// - SeeAlso: BaseViewController.setupProperties
     override func setupProperties() {
         viewModel.setDataSource(collectionView: customView.collectionView)
         customView.collectionView.delegate = self
-
-
+        setSupplementaryViewProvider(collectionView: customView.collectionView)
     }
 
     private func setupSearchController() {
@@ -78,6 +78,22 @@ extension MovieListViewController: UIScrollViewDelegate {
             scrollUpDirection = false
             viewModel.scrolledToEndOfCollection()
         }
+    }
+}
 
+extension MovieListViewController {
+    /// Function called to set supplementary view provider for collectionView (header, footer)
+    /// - Parameter collectionView: collection view instance.
+    func setSupplementaryViewProvider(collectionView: UICollectionView) {
+        viewModel.dataSource.supplementaryViewProvider = { (
+            collectionView: UICollectionView,
+            kind: String,
+            indexPath: IndexPath
+        ) -> UICollectionReusableView? in
+
+            let supplementaryView = collectionView.dequeueSupplementaryView(kind: kind, dequeueableView: MoviesFooterSuplementaryView.self, forIndexPath: indexPath)
+
+            return supplementaryView
+        }
     }
 }

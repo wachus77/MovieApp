@@ -10,12 +10,12 @@ import UIKit
 final class MovieListViewModel {
 
     /// collectionView section
-    private enum Section: Int, CaseIterable {
+    enum Section: Int, CaseIterable {
         case movies
     }
 
     /// collectionView data source
-    private var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>!
+    var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>!
 
     /// - SeeAlso: AppFoundation.apiClient
     private let apiClient: APIClient
@@ -88,7 +88,9 @@ final class MovieListViewModel {
 
     /// set data source
     private func setMovies(movieList: [Movie]) {
-        self.moviesList.append(contentsOf: movieList)
+        // remove duplicates
+        let newMovies = Set(movieList)
+        self.moviesList.append(contentsOf: Array(newMovies))
         var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
         snapshot.appendSections([.movies])
         snapshot.appendItems(self.moviesList, toSection: .movies)

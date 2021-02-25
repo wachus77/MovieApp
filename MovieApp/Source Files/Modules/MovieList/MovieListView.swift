@@ -9,6 +9,8 @@ import UIKit
 
 final class MovieListView: BaseView {
 
+    static let sectionFooterElementKind = "section-footer-element-kind"
+
     let collectionViewSectionForMovies: NSCollectionLayoutSection = {
         let itemLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                     heightDimension: .fractionalHeight(1.0))
@@ -24,6 +26,14 @@ final class MovieListView: BaseView {
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 15
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15)
+
+        let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .absolute(64))
+        let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: footerSize,
+            elementKind: sectionFooterElementKind, alignment: .bottom
+        )
+        section.boundarySupplementaryItems = [sectionFooter]
 
         return section
     }()
