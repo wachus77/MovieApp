@@ -50,7 +50,7 @@ final class MovieListView: BaseView {
 }
 
 extension MovieListView: ViewSetupable {
-    /// - SeeAlso: ViewSetupable.setupViewHierarchy
+    /// - SeeAlso: ViewSetupable.setupProperties
     func setupProperties() {
         backgroundColor = UIColor(light: .white, dark: .black)
     }

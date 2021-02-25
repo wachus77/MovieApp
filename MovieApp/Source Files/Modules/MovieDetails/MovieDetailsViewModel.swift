@@ -12,7 +12,7 @@ final class MovieDetailsViewModel {
     /// - SeeAlso: AppFoundation.apiClient
     private let apiClient: APIClient
 
-    private let movieId: Int
+    private let movieId: String
 
     var showHideLoadingState: ((Bool) -> Void)?
 
@@ -27,7 +27,7 @@ final class MovieDetailsViewModel {
     /// Initializes an instance of the receiver.
     ///
     /// - Parameter apiClient: network tasks manager
-    init(apiClient: APIClient, movieId: Int) {
+    init(apiClient: APIClient, movieId: String) {
         self.apiClient = apiClient
         self.movieId = movieId
     }

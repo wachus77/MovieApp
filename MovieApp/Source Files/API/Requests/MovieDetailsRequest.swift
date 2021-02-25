@@ -11,7 +11,7 @@ struct MovieDetailsRequest: APIRequestModel {
 
     typealias Response = MovieDetailsResponse
 
-    let imdbID: Int
+    let imdbID: String
     let apiKey: String = "b9bd48a6"
 
     /// - SeeAlso: APIRequestModel.method
@@ -26,6 +26,6 @@ struct MovieDetailsRequest: APIRequestModel {
     }
 
     var queryItems: [URLQueryItem]? {
-        return [URLQueryItem(name: "apikey", value: apiKey), URLQueryItem(name: "i", value: "\(imdbID)")]
+        return [URLQueryItem(name: "apikey", value: apiKey), URLQueryItem(name: "i", value: imdbID)]
     }
 }

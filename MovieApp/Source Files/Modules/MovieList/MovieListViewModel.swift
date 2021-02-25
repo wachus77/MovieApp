@@ -67,6 +67,7 @@ final class MovieListViewModel {
         }
 
         currentSearchText = searchText
+        makeGetMoviesRequest()
     }
 
     func scrolledToEndOfCollection() {

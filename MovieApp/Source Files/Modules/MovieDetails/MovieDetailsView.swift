@@ -12,9 +12,9 @@ final class MovieDetailsView: BaseView {
 }
 
 extension MovieDetailsView: ViewSetupable {
-    /// - SeeAlso: ViewSetupable.setupViewHierarchy
+    /// - SeeAlso: ViewSetupable.setupProperties
     func setupProperties() {
-
+        backgroundColor = UIColor(light: .white, dark: .black)
     }
 
     /// - SeeAlso: ViewSetupable.setupViewHierarchy

@@ -26,6 +26,19 @@ final class MovieListFlowController: BaseNavigationFlowController {
     /// - Returns: Object of MovieListViewController
     private func setupMovieListScreen() -> UIViewController {
         let movieListViewController = MovieListViewController(view: MovieListView(), viewModel: MovieListViewModel(apiClient: appFoundation.apiClient))
+        movieListViewController.eventTriggered = { [unowned self] event in
+            switch event {
+            case let .didTapMovie(movie):
+                self.showMovieDetailsScreen(movie: movie)
+            }
+        }
         return movieListViewController
+    }
+
+    /// show movie details screen
+    /// - Parameter movie: movie object
+    private func showMovieDetailsScreen(movie: Movie) {
+        let movieDetailsViewController = MovieDetailsViewController(view: MovieDetailsView(), viewModel: MovieDetailsViewModel(apiClient: appFoundation.apiClient, movieId: movie.imdbId))
+        push(movieDetailsViewController)
     }
 }

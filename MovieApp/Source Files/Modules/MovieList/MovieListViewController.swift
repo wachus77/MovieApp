@@ -11,6 +11,14 @@ final class MovieListViewController: BaseViewController<MovieListView, MovieList
 
     // MARK: Properties
 
+    /// Enum describing events that can be triggered by this controller
+    enum Event {
+        case didTapMovie(Movie)
+    }
+
+    /// Callback with triggered event
+    var eventTriggered: ((Event) -> Void)?
+
     private let searchController = UISearchController(searchResultsController: nil)
     private var scrollUpDirection = false
     private var footerView: MoviesFooterSuplementaryView?
@@ -76,6 +84,9 @@ extension MovieListViewController: UISearchResultsUpdating {
 extension MovieListViewController: UICollectionViewDelegate {
     /// - SeeAlso: UICollectionViewDelegate.collectionView(_:didSelectItemAt:)
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = viewModel.dataSource.itemIdentifier(for: indexPath) else { return }
+        guard let movie = item as? Movie else { return }
+        eventTriggered?(.didTapMovie(movie))
     }
 }
 
