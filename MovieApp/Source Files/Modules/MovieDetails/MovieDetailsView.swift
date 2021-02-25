@@ -17,7 +17,7 @@ final class MovieDetailsView: BaseView {
     }()
 
     private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [topStackView, separator, middleStackView])
+        let stackView = UIStackView(arrangedSubviews: [topStackView, separator, middleStackView, secondSeparator])
         stackView.axis = .vertical
         stackView.spacing = 5
         stackView.alignment = .fill
@@ -31,7 +31,7 @@ final class MovieDetailsView: BaseView {
         stackView.spacing = 5
         stackView.alignment = .fill
         stackView.distribution = .fill
-        stackView.layoutMargins = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        stackView.layoutMargins = UIEdgeInsets(top: 15, left: 30, bottom: 15, right: 30)
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
@@ -54,7 +54,7 @@ final class MovieDetailsView: BaseView {
 
     private let yearLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .orange
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.text = "Year"
@@ -63,17 +63,17 @@ final class MovieDetailsView: BaseView {
 
     private let separator: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.darkGray
         return view
     }()
 
     private lazy var middleStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [mainInfoStackView])
+        let stackView = UIStackView(arrangedSubviews: [mainInfoStackView, plotStackView, ratingStackView])
         stackView.axis = .vertical
-        stackView.spacing = 5
+        stackView.spacing = 20
         stackView.alignment = .fill
         stackView.distribution = .fill
-        stackView.layoutMargins = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        stackView.layoutMargins = UIEdgeInsets(top: 15, left: 30, bottom: 15, right: 30)
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
@@ -127,12 +127,135 @@ final class MovieDetailsView: BaseView {
     }()
 
     private lazy var mainInfoStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [categoryLabel, dotLabel, runtimeLabel, dotSecondLabel, ratingLabel])
+        let stackView = UIStackView(arrangedSubviews: [categoryLabel, runtimeLabel, ratingLabel])
         stackView.axis = .horizontal
         stackView.spacing = 5
-        stackView.alignment = .fill
-        stackView.distribution = .equalCentering
+        stackView.alignment = .center
+        stackView.distribution = .fillEqually
         return stackView
+    }()
+
+    private lazy var plotStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [plotTitleLabel, plotLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 5
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        return stackView
+    }()
+
+    private let plotTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .orange
+        label.numberOfLines = 1
+        // todo localizable
+        label.text = "Plot"
+        return label
+    }()
+
+    private let plotLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.text = "Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races."
+        return label
+    }()
+
+    private lazy var ratingStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [scoreStackView, reviewsStackView, votesStackView])
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.alignment = .center
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+
+    private lazy var scoreStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [scoreTitleLabel, scoreLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 3
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        return stackView
+    }()
+
+    private let scoreTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .orange
+        label.numberOfLines = 1
+        // todo localizable
+        label.text = "Score"
+        return label
+    }()
+
+    private let scoreLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.text = "7.2"
+        return label
+    }()
+
+    private lazy var reviewsStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [reviewsTitleLabel, reviewsLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 3
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        return stackView
+    }()
+
+    private let reviewsTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .orange
+        label.numberOfLines = 1
+        // todo localizable
+        label.text = "Reviews"
+        return label
+    }()
+
+    private let reviewsLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.text = "800"
+        return label
+    }()
+
+    private lazy var votesStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [votesTitleLabel, votesLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 3
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        return stackView
+    }()
+
+    private let votesTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .orange
+        label.numberOfLines = 1
+        // todo localizable
+        label.text = "Votes"
+        return label
+    }()
+
+    private let votesLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.text = "442,233"
+        return label
+    }()
+
+    private let secondSeparator: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.darkGray
+        return view
     }()
 }
 
@@ -145,6 +268,8 @@ extension MovieDetailsView: ViewSetupable {
     /// - SeeAlso: ViewSetupable.setupViewHierarchy
     func setupViewHierarchy() {
         scrollView.addSubview(mainStackView)
+        mainInfoStackView.addSubview(dotLabel)
+        mainInfoStackView.addSubview(dotSecondLabel)
         addSubviews([scrollView])
     }
 
@@ -161,6 +286,30 @@ extension MovieDetailsView: ViewSetupable {
 
         separator.addConstraints([
             equal(\.heightAnchor, to: 1)
+        ])
+
+        secondSeparator.addConstraints([
+            equal(\.heightAnchor, to: 1)
+        ])
+
+        dotLabel.addConstraints([
+            equal(\.widthAnchor, to: 5)
+        ])
+
+        dotSecondLabel.addConstraints([
+            equal(\.widthAnchor, to: 5)
+        ])
+
+        dotLabel.addConstraints([
+            equal(categoryLabel, \.trailingAnchor, \.trailingAnchor, constant: 5.0),
+            equal(categoryLabel, \.topAnchor, \.topAnchor, constant: 0.0),
+            equal(categoryLabel, \.bottomAnchor, \.bottomAnchor, constant: 0.0)
+        ])
+
+        dotSecondLabel.addConstraints([
+            equal(ratingLabel, \.leadingAnchor, \.leadingAnchor, constant: 5.0),
+            equal(ratingLabel, \.topAnchor, \.topAnchor, constant: 0.0),
+            equal(ratingLabel, \.bottomAnchor, \.bottomAnchor, constant: 0.0)
         ])
     }
 }
