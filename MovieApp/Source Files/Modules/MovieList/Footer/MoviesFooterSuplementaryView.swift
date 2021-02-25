@@ -8,16 +8,24 @@
 import UIKit
 
 class MoviesFooterSuplementaryView: UICollectionReusableView {
-    private let noMorePlacesLabel: UILabel = {
+    let noMorePlacesLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.numberOfLines = 1
         label.text = "no more places"
+        label.isHidden = true
         return label
     }()
 
+    let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.color = .gray
+        spinner.isHidden = true
+        return spinner
+    }()
+
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [noMorePlacesLabel])
+        let stackView = UIStackView(arrangedSubviews: [spinner, noMorePlacesLabel])
         stackView.axis = .vertical
         stackView.spacing = 5
         stackView.alignment = .center
@@ -38,7 +46,9 @@ class MoviesFooterSuplementaryView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: Functions
+    override func layoutSubviews() {
+        spinner.startAnimating()
+    }
 
 }
 
@@ -53,7 +63,6 @@ extension MoviesFooterSuplementaryView: ViewSetupable {
 
     /// - SeeAlso: ViewSetupable.setupConstraints
     func setupConstraints() {
-        stackView.addConstraints(equalToSuperview(with: .init(top: 10, left: 0, bottom: -10, right: 0), usingSafeArea: false))
+        stackView.addConstraints(equalToSuperview(with: .init(top: 0, left: 0, bottom: 0, right: 0), usingSafeArea: false))
     }
 }
-

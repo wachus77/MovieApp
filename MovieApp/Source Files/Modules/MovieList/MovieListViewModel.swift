@@ -28,9 +28,21 @@ final class MovieListViewModel {
 
     private var moviesList: [Movie] = []
 
-    private var noMoreMovies = false
+    var showHideNoMoreMovies: ((Bool) -> Void)?
 
-    private var isFetching = false
+    var noMoreMovies: Bool = false {
+        didSet {
+            showHideNoMoreMovies?(noMoreMovies)
+        }
+    }
+
+    var showHideLoadingState: ((Bool) -> Void)?
+
+    var isLoading: Bool = false {
+        didSet {
+            showHideLoadingState?(isLoading)
+        }
+    }
 
     // MARK: Initalization
 
@@ -62,12 +74,13 @@ final class MovieListViewModel {
         guard let currentSearchText = currentSearchText else {
             return
         }
-        isFetching = true
+        
+        isLoading = true
         currentRequestTask?.cancel()
         let request = MovieSearchRequest(search: currentSearchText, page: searchPageNumber)
         currentRequestTask = apiClient.perform(request: request, maxRetries: 1, maxRetryInterval: 15) { [weak self] result in
             guard let self = self else { return }
-            self.isFetching = false
+            self.isLoading = false
             switch result {
             case let .success(response):
                 let moviesList = response.moviesList
@@ -88,9 +101,7 @@ final class MovieListViewModel {
 
     /// set data source
     private func setMovies(movieList: [Movie]) {
-        // remove duplicates
-        let newMovies = Set(movieList)
-        self.moviesList.append(contentsOf: Array(newMovies))
+        self.moviesList.append(contentsOf: movieList)
         var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
         snapshot.appendSections([.movies])
         snapshot.appendItems(self.moviesList, toSection: .movies)

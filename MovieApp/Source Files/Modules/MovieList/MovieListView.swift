@@ -28,7 +28,7 @@ final class MovieListView: BaseView {
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15)
 
         let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .absolute(64))
+                                                heightDimension: .absolute(70))
         let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: footerSize,
             elementKind: sectionFooterElementKind, alignment: .bottom

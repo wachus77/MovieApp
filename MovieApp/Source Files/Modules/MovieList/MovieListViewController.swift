@@ -13,6 +13,7 @@ final class MovieListViewController: BaseViewController<MovieListView, MovieList
 
     private let searchController = UISearchController(searchResultsController: nil)
     private var scrollUpDirection = false
+    private var footerView: MoviesFooterSuplementaryView?
 
     // MARK: Functions
 
@@ -34,6 +35,19 @@ final class MovieListViewController: BaseViewController<MovieListView, MovieList
         viewModel.setDataSource(collectionView: customView.collectionView)
         customView.collectionView.delegate = self
         setSupplementaryViewProvider(collectionView: customView.collectionView)
+    }
+
+    /// - SeeAlso: BaseViewController.setupCallbacks
+    override func setupCallbacks() {
+        viewModel.showHideNoMoreMovies = { [weak self] result in
+            guard let self = self else { return }
+            self.footerView?.noMorePlacesLabel.isHidden = !result
+        }
+
+        viewModel.showHideLoadingState = { [weak self] result in
+            guard let self = self else { return }
+            self.footerView?.spinner.isHidden = !result
+        }
     }
 
     private func setupSearchController() {
@@ -85,15 +99,19 @@ extension MovieListViewController {
     /// Function called to set supplementary view provider for collectionView (header, footer)
     /// - Parameter collectionView: collection view instance.
     func setSupplementaryViewProvider(collectionView: UICollectionView) {
-        viewModel.dataSource.supplementaryViewProvider = { (
+        viewModel.dataSource.supplementaryViewProvider = { [weak self] (
             collectionView: UICollectionView,
             kind: String,
             indexPath: IndexPath
         ) -> UICollectionReusableView? in
 
-            let supplementaryView = collectionView.dequeueSupplementaryView(kind: kind, dequeueableView: MoviesFooterSuplementaryView.self, forIndexPath: indexPath)
+            guard let self = self else { return nil }
 
-            return supplementaryView
+            self.footerView = collectionView.dequeueSupplementaryView(kind: kind, dequeueableView: MoviesFooterSuplementaryView.self, forIndexPath: indexPath)
+            self.footerView?.spinner.isHidden = !self.viewModel.isLoading
+            self.footerView?.noMorePlacesLabel.isHidden = !self.viewModel.noMoreMovies
+
+            return self.footerView
         }
     }
 }
