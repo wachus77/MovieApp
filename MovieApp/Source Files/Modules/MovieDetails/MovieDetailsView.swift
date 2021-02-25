@@ -17,7 +17,7 @@ final class MovieDetailsView: BaseView {
     }()
 
     private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [topStackView, separator, middleStackView, secondSeparator])
+        let stackView = UIStackView(arrangedSubviews: [topStackView, separator, middleStackView, secondSeparator, bottomStackView])
         stackView.axis = .vertical
         stackView.spacing = 5
         stackView.alignment = .fill
@@ -257,6 +257,105 @@ final class MovieDetailsView: BaseView {
         view.backgroundColor = UIColor.darkGray
         return view
     }()
+
+    private lazy var bottomStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [bottomTitleStackView, bottomContentStackView])
+        stackView.axis = .horizontal
+        stackView.spacing = 15
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.layoutMargins = UIEdgeInsets(top: 15, left: 30, bottom: 15, right: 30)
+        stackView.isLayoutMarginsRelativeArrangement = true
+        return stackView
+    }()
+
+    private lazy var bottomTitleStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [directorTitleContainer, writerTitleContainer, actorsTitleContainer])
+        stackView.axis = .vertical
+        stackView.spacing = 7
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        return stackView
+    }()
+
+    private let directorTitleContainer: UIView = {
+        let view = UIView()
+        return view
+    }()
+
+    private let directorTitleLabel: UILabel = {
+        let label = UILabel()
+        label.setContentCompressionResistancePriority(.defaultHigh + 1, for: .horizontal)
+        label.textColor = .orange
+        label.numberOfLines = 1
+        // todo localizable
+        label.text = "Director"
+        return label
+    }()
+
+    private let directorLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.text = "Billy buuuuzka"
+        return label
+    }()
+
+    private lazy var bottomContentStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [directorLabel, writerLabel, actorsLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 7
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        return stackView
+    }()
+
+    private let writerTitleContainer: UIView = {
+        let view = UIView()
+        return view
+    }()
+
+    private let writerTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .orange
+        label.numberOfLines = 1
+        // todo localizable
+        label.text = "Writer"
+        return label
+    }()
+
+    private let writerLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.text = "Nicole Perlman (story by), Meg LeFauve (story by), Anna Boden (story by), Ryan Fleck (story by), Geneva Robertson-Dworet (story by)"
+        return label
+    }()
+
+    private let actorsTitleContainer: UIView = {
+        let view = UIView()
+        return view
+    }()
+
+    private let actorsTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .orange
+        label.numberOfLines = 1
+        // todo localizable
+        label.text = "Actors"
+        return label
+    }()
+
+    private let actorsLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.text = "Brie Larson, Samuel L. Jackson, Ben Mendelsohn, Jude Law"
+        return label
+    }()
 }
 
 extension MovieDetailsView: ViewSetupable {
@@ -270,6 +369,9 @@ extension MovieDetailsView: ViewSetupable {
         scrollView.addSubview(mainStackView)
         mainInfoStackView.addSubview(dotLabel)
         mainInfoStackView.addSubview(dotSecondLabel)
+        directorTitleContainer.addSubview(directorTitleLabel)
+        writerTitleContainer.addSubview(writerTitleLabel)
+        actorsTitleContainer.addSubview(actorsTitleLabel)
         addSubviews([scrollView])
     }
 
@@ -310,6 +412,36 @@ extension MovieDetailsView: ViewSetupable {
             equal(ratingLabel, \.leadingAnchor, \.leadingAnchor, constant: 5.0),
             equal(ratingLabel, \.topAnchor, \.topAnchor, constant: 0.0),
             equal(ratingLabel, \.bottomAnchor, \.bottomAnchor, constant: 0.0)
+        ])
+
+        writerTitleContainer.addConstraints([
+            equal(writerLabel, \.topAnchor, \.topAnchor, constant: 0.0)
+        ])
+
+        directorTitleContainer.addConstraints([
+            equal(directorLabel, \.topAnchor, \.topAnchor, constant: 0.0)
+        ])
+
+        actorsTitleContainer.addConstraints([
+            equal(actorsLabel, \.topAnchor, \.topAnchor, constant: 0.0)
+        ])
+
+        directorTitleLabel.addConstraints([
+            equal(directorTitleContainer, \.leadingAnchor, \.leadingAnchor, constant: 0.0),
+            equal(directorTitleContainer, \.topAnchor, \.topAnchor, constant: 0.0),
+            equal(directorTitleContainer, \.trailingAnchor, \.trailingAnchor, constant: 0.0)
+        ])
+
+        writerTitleLabel.addConstraints([
+            equal(writerTitleContainer, \.leadingAnchor, \.leadingAnchor, constant: 0.0),
+            equal(writerTitleContainer, \.topAnchor, \.topAnchor, constant: 0.0),
+            equal(writerTitleContainer, \.trailingAnchor, \.trailingAnchor, constant: 0.0)
+        ])
+
+        actorsTitleLabel.addConstraints([
+            equal(actorsTitleContainer, \.leadingAnchor, \.leadingAnchor, constant: 0.0),
+            equal(actorsTitleContainer, \.topAnchor, \.topAnchor, constant: 0.0),
+            equal(actorsTitleContainer, \.trailingAnchor, \.trailingAnchor, constant: 0.0)
         ])
     }
 }
