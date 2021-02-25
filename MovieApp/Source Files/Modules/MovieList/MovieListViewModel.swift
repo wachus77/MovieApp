@@ -67,10 +67,15 @@ final class MovieListViewModel {
         }
 
         currentSearchText = searchText
-        makeGetMoviesRequest()
     }
 
-    func makeGetMoviesRequest() {
+    func scrolledToEndOfCollection() {
+        if !noMoreMovies {
+            makeGetMoviesRequest()
+        }
+    }
+
+    private func makeGetMoviesRequest() {
         guard let currentSearchText = currentSearchText else {
             return
         }
@@ -108,13 +113,7 @@ final class MovieListViewModel {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 
-    func scrolledToEndOfCollection() {
-        if !noMoreMovies {
-            makeGetMoviesRequest()
-        }
-    }
-
-    func clearRequestParameters() {
+    private func clearRequestParameters() {
         moviesList.removeAll()
         noMoreMovies = false
         searchPageNumber = 1
