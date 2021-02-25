@@ -88,10 +88,10 @@ final class MovieListViewModel {
 
     /// set data source
     private func setMovies(movieList: [Movie]) {
-        self.moviesList.append(contentsOf: moviesList)
+        self.moviesList.append(contentsOf: movieList)
         var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
         snapshot.appendSections([.movies])
-        snapshot.appendItems(movieList, toSection: .movies)
+        snapshot.appendItems(self.moviesList, toSection: .movies)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 

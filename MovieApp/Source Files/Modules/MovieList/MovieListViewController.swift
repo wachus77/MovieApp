@@ -12,6 +12,7 @@ final class MovieListViewController: BaseViewController<MovieListView, MovieList
     // MARK: Properties
 
     private let searchController = UISearchController(searchResultsController: nil)
+    private var scrollUpDirection = false
 
     // MARK: Functions
 
@@ -61,5 +62,22 @@ extension MovieListViewController: UISearchResultsUpdating {
 extension MovieListViewController: UICollectionViewDelegate {
     /// - SeeAlso: UICollectionViewDelegate.collectionView(_:didSelectItemAt:)
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    }
+}
+
+extension MovieListViewController: UIScrollViewDelegate {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        scrollUpDirection = velocity.y > 0
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let currentOffset = scrollView.contentOffset.y
+
+        if (maximumOffset - currentOffset <= 15) && scrollUpDirection {
+            scrollUpDirection = false
+            viewModel.scrolledToEndOfCollection()
+        }
+
     }
 }
