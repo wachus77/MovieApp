@@ -19,5 +19,6 @@ protocol APIClient: AnyObject {
     ///   - completion: The completion closure containing result of an operation.
     ///   - maxRetries: The maximum number of retry attempts
     ///   - maxRetryInterval: The maximum time in seconds allowed for all retry attempts
+    @discardableResult
     func perform<Request>(request: Request, maxRetries: Int, maxRetryInterval: TimeInterval, completion: @escaping (Result<Request.Response, APIClientError>) -> Void) -> URLSessionDataTask? where Request: APIRequest
 }

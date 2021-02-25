@@ -11,6 +11,7 @@ final class MovieDetailsViewController: BaseViewController<MovieDetailsView, Mov
 
     // MARK: Properties
 
+  
 
     // MARK: Functions
 

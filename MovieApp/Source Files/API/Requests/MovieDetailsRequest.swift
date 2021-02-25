@@ -9,7 +9,7 @@ import Foundation
 
 struct MovieDetailsRequest: APIRequestModel {
 
-    typealias Response = MovieSearchResponse
+    typealias Response = MovieDetailsResponse
 
     let imdbID: Int
     let apiKey: String = "b9bd48a6"
