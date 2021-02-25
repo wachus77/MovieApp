@@ -12,6 +12,7 @@ class MoviesFooterSuplementaryView: UICollectionReusableView {
         let label = UILabel()
         label.textColor = .black
         label.numberOfLines = 1
+        // todo localozable
         label.text = "no more places"
         label.isHidden = true
         return label
