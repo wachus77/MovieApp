@@ -110,6 +110,10 @@ final class MovieListViewModel {
                     }
                 }
             case .failure(let error):
+                // other than cancel
+                if case APIClientError.urlError(URLError.cancelled) = error {
+                    return
+                }
                 self.showHideError?(error.humanReadableDescription)
             }
         }
