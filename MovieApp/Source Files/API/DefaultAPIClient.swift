@@ -36,6 +36,7 @@ final class DefaultAPIClient: NSObject, APIClient {
     // MARK: Functions
 
     /// - SeeAlso: APIClient.perform(request:completion:)
+    @discardableResult
     func perform<Request>(request: Request, maxRetries: Int = 5, maxRetryInterval: TimeInterval = 40, completion: @escaping (Result<Request.Response, APIClientError>) -> Void) -> URLSessionDataTask? where Request: APIRequest {
         // Create convenience completion closures that will be reused later.
         let resolveSuccess: (Request.Response) -> Void = { response in
