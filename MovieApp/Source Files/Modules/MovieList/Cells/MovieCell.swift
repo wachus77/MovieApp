@@ -66,7 +66,7 @@ final class MovieCell: UICollectionViewCell {
 extension MovieCell: ViewSetupable {
     /// - SeeAlso: ViewSetupable.setupProperties
     func setupProperties() {
-        titleContainerView.backgroundColor = UIColor.orange.withAlphaComponent(0.7)
+        titleContainerView.backgroundColor = UIColor.orange.withAlphaComponent(0.8)
     }
 
     /// - SeeAlso: ViewSetupable.setupViewHierarchy
