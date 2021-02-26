@@ -18,6 +18,13 @@ final class MovieDetailsViewModel {
 
     var updateMovieDetailsView: ((MovieDetailsResponse) -> Void)?
 
+    var movieDetails: MovieDetailsResponse? {
+        didSet {
+            guard let movieDetails = movieDetails else { return }
+            self.updateMovieDetailsView?(movieDetails)
+        }
+    }
+
     // MARK: Initalization
 
     /// Initializes an instance of the receiver.
@@ -30,14 +37,14 @@ final class MovieDetailsViewModel {
     }
 
     // MARK: Functions
-
+    
     func getMovieDetails() {
         let request = MovieDetailsRequest(imdbID: movieId)
         apiClient.perform(request: request, maxRetries: 1, maxRetryInterval: 15) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case let .success(response):
-                self.updateMovieDetailsView?(response)
+                self.movieDetails = response
             case .failure(let error):
                 self.showError?(error.humanReadableDescription)
             }

@@ -8,8 +8,6 @@
 @testable import MovieApp
 import XCTest
 
-// MARK: Tests
-
 final class MovieListViewModelTests: XCTestCase {
 
     var sut: MovieListViewModel!
