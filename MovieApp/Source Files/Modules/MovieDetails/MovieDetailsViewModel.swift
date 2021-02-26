@@ -14,14 +14,6 @@ final class MovieDetailsViewModel {
 
     private let movieId: String
 
-    var showHideLoadingState: ((Bool) -> Void)?
-
-    var isLoading: Bool = false {
-        didSet {
-            showHideLoadingState?(isLoading)
-        }
-    }
-
     var updateMovieDetailsView: ((MovieDetailsResponse) -> Void)?
 
     // MARK: Initalization
@@ -35,11 +27,9 @@ final class MovieDetailsViewModel {
     }
 
     func getMovieDetails() {
-        isLoading = true
         let request = MovieDetailsRequest(imdbID: movieId)
         apiClient.perform(request: request, maxRetries: 1, maxRetryInterval: 15) { [weak self] result in
             guard let self = self else { return }
-            self.isLoading = false
             switch result {
             case let .success(response):
                 self.updateMovieDetailsView?(response)

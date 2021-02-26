@@ -10,6 +10,19 @@ import Kingfisher
 
 final class MovieDetailsView: BaseView {
 
+    private let loadingContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        return view
+    }()
+
+    let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.color = .gray
+        spinner.isHidden = true
+        return spinner
+    }()
+
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
@@ -82,7 +95,6 @@ final class MovieDetailsView: BaseView {
         label.textColor = .black
         label.numberOfLines = 0
         label.lineBreakMode = .byTruncatingTail
-        label.text = "Category, Action, Sci-Fi"
         label.textAlignment = .center
         return label
     }()
@@ -92,7 +104,6 @@ final class MovieDetailsView: BaseView {
         label.textColor = .black
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "Runtime"
         label.textAlignment = .center
         return label
     }()
@@ -102,7 +113,6 @@ final class MovieDetailsView: BaseView {
         label.textColor = .black
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "Rating"
         label.textAlignment = .center
         return label
     }()
@@ -350,6 +360,9 @@ final class MovieDetailsView: BaseView {
     }()
 
     func setupView(movieDetails: MovieDetailsResponse) {
+        spinner.stopAnimating()
+        loadingContainer.isHidden = true
+
         titleLabel.text = movieDetails.title
         yearLabel.text = movieDetails.year
         categoryLabel.text = movieDetails.categories
@@ -388,6 +401,10 @@ final class MovieDetailsView: BaseView {
           .fade(duration: 0.25)
           .set(to: imageView)
     }
+
+    override func layoutSubviews() {
+        spinner.startAnimating()
+    }
 }
 
 extension MovieDetailsView: ViewSetupable {
@@ -404,11 +421,19 @@ extension MovieDetailsView: ViewSetupable {
         directorTitleContainer.addSubview(directorTitleLabel)
         writerTitleContainer.addSubview(writerTitleLabel)
         actorsTitleContainer.addSubview(actorsTitleLabel)
-        addSubviews([scrollView])
+        loadingContainer.addSubview(spinner)
+        addSubviews([scrollView, loadingContainer])
     }
 
     /// - SeeAlso: ViewSetupable.setupConstraints
     func setupConstraints() {
+
+        spinner.addConstraints([
+            equal(loadingContainer, \.centerXAnchor),
+            equal(loadingContainer, \.centerYAnchor)
+        ])
+
+        loadingContainer.addConstraints(equalToSuperview(with: .init(top: 0, left: 0, bottom: 0, right: 0), usingSafeArea: true))
 
         scrollView.addConstraints(equalToSuperview(with: .init(top: 0, left: 0, bottom: 0, right: 0), usingSafeArea: true))
 
