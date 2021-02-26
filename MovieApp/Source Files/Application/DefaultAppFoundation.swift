@@ -10,7 +10,6 @@ final class DefaultAppFoundation: AppFoundation {
     /// - SeeAlso: AppFoundation.apiClient
     private(set) lazy var apiClient: APIClient = {
         let configuration = DefaultAPIClientConfiguration(scheme: .http, host: "www.omdbapi.com")
-
         return DefaultAPIClient(configuration: configuration)
     }()
 }

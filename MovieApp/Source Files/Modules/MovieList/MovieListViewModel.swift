@@ -148,9 +148,7 @@ extension MovieListViewModel {
             switch sectionLayoutKind {
             case .movies:
                 let cell = collectionView.dequeue(dequeueableCell: MovieCell.self, forIndexPath: indexPath)
-                // swiftlint:disable force_cast
-                let movie = item as! Movie
-                // swiftlint:enable force_cast
+                guard let movie = item as? Movie else { return UICollectionViewCell() }
                 cell.setupCell(movie: movie)
                 return cell
             }

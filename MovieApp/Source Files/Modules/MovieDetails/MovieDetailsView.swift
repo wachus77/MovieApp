@@ -16,10 +16,9 @@ final class MovieDetailsView: BaseView {
         return view
     }()
 
-    let spinner: UIActivityIndicatorView = {
+    private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.color = .gray
-        spinner.isHidden = true
         return spinner
     }()
 
@@ -38,6 +37,8 @@ final class MovieDetailsView: BaseView {
         stackView.distribution = .fill
         return stackView
     }()
+
+    //MARK: TOP STACK VIEW (imageView, titleLabel, yearLabel)
 
     private lazy var topStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel, yearLabel])
@@ -73,11 +74,15 @@ final class MovieDetailsView: BaseView {
         return label
     }()
 
+    ///
+
     private let separator: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.darkGray
         return view
     }()
+
+    // MARK: MIDDLE STACK VIEW (mainInfoStackView, plotStackView, ratingStackView)
 
     private lazy var middleStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [mainInfoStackView, plotStackView, ratingStackView])
@@ -87,6 +92,17 @@ final class MovieDetailsView: BaseView {
         stackView.distribution = .fill
         stackView.layoutMargins = UIEdgeInsets(top: 15, left: 30, bottom: 15, right: 30)
         stackView.isLayoutMarginsRelativeArrangement = true
+        return stackView
+    }()
+
+    /// MAIN INFO STACK VIEW (categoryLabel, runtimeLabel, ratingLabel)
+
+    private lazy var mainInfoStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [categoryLabel, runtimeLabel, ratingLabel])
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.alignment = .center
+        stackView.distribution = .fillEqually
         return stackView
     }()
 
@@ -135,14 +151,7 @@ final class MovieDetailsView: BaseView {
         return label
     }()
 
-    private lazy var mainInfoStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [categoryLabel, runtimeLabel, ratingLabel])
-        stackView.axis = .horizontal
-        stackView.spacing = 5
-        stackView.alignment = .center
-        stackView.distribution = .fillEqually
-        return stackView
-    }()
+    ///
 
     private lazy var plotStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [plotTitleLabel, plotLabel])
@@ -263,6 +272,8 @@ final class MovieDetailsView: BaseView {
         return view
     }()
 
+    // MARK: BOTTOM STACK VIEW (bottomTitleStackView, bottomContentStackView)
+
     private lazy var bottomStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [bottomTitleStackView, bottomContentStackView])
         stackView.axis = .horizontal
@@ -276,6 +287,15 @@ final class MovieDetailsView: BaseView {
 
     private lazy var bottomTitleStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [directorTitleContainer, writerTitleContainer, actorsTitleContainer])
+        stackView.axis = .vertical
+        stackView.spacing = 7
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        return stackView
+    }()
+
+    private lazy var bottomContentStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [directorLabel, writerLabel, actorsLabel])
         stackView.axis = .vertical
         stackView.spacing = 7
         stackView.alignment = .fill
@@ -304,15 +324,6 @@ final class MovieDetailsView: BaseView {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
-    }()
-
-    private lazy var bottomContentStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [directorLabel, writerLabel, actorsLabel])
-        stackView.axis = .vertical
-        stackView.spacing = 7
-        stackView.alignment = .fill
-        stackView.distribution = .fill
-        return stackView
     }()
 
     private let writerTitleContainer: UIView = {
@@ -359,6 +370,8 @@ final class MovieDetailsView: BaseView {
         return label
     }()
 
+    // MARK: Functions
+
     func setupView(movieDetails: MovieDetailsResponse) {
         spinner.stopAnimating()
         loadingContainer.isHidden = true
@@ -396,10 +409,10 @@ final class MovieDetailsView: BaseView {
         guard let url = URL(string: movieDetails.posterUrl), movieDetails.posterUrl != "N/A" else { return }
         imageView.kf.indicatorType = .activity
         KF.url(url)
-          .placeholder(UIImage(named: "noImage"))
-          .cacheMemoryOnly()
-          .fade(duration: 0.25)
-          .set(to: imageView)
+            .placeholder(UIImage(named: "noImage"))
+            .cacheMemoryOnly()
+            .fade(duration: 0.25)
+            .set(to: imageView)
     }
 
     override func layoutSubviews() {
@@ -452,20 +465,14 @@ extension MovieDetailsView: ViewSetupable {
         ])
 
         dotLabel.addConstraints([
-            equal(\.widthAnchor, to: 5)
-        ])
-
-        dotSecondLabel.addConstraints([
-            equal(\.widthAnchor, to: 5)
-        ])
-
-        dotLabel.addConstraints([
+            equal(\.widthAnchor, to: 5),
             equal(categoryLabel, \.trailingAnchor, \.trailingAnchor, constant: 5.0),
             equal(categoryLabel, \.topAnchor, \.topAnchor, constant: 0.0),
             equal(categoryLabel, \.bottomAnchor, \.bottomAnchor, constant: 0.0)
         ])
 
         dotSecondLabel.addConstraints([
+            equal(\.widthAnchor, to: 5),
             equal(ratingLabel, \.leadingAnchor, \.leadingAnchor, constant: -5.0),
             equal(ratingLabel, \.topAnchor, \.topAnchor, constant: 0.0),
             equal(ratingLabel, \.bottomAnchor, \.bottomAnchor, constant: 0.0)

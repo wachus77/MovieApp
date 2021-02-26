@@ -23,10 +23,13 @@ final class MovieDetailsViewModel {
     /// Initializes an instance of the receiver.
     ///
     /// - Parameter apiClient: network tasks manager
+    /// - Parameter movieId: movie id
     init(apiClient: APIClient, movieId: String) {
         self.apiClient = apiClient
         self.movieId = movieId
     }
+
+    // MARK: Functions
 
     func getMovieDetails() {
         let request = MovieDetailsRequest(imdbID: movieId)

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MoviesFooterSuplementaryView: UICollectionReusableView {
+final class MoviesFooterSuplementaryView: UICollectionReusableView {
 
     let noMorePlacesLabel: UILabel = {
         let label = UILabel()
@@ -55,8 +55,6 @@ class MoviesFooterSuplementaryView: UICollectionReusableView {
 }
 
 extension MoviesFooterSuplementaryView: ViewSetupable {
-    /// - SeeAlso: ViewSetupable.setupProperties
-    func setupProperties() {}
 
     /// - SeeAlso: ViewSetupable.setupViewHierarchy
     func setupViewHierarchy() {

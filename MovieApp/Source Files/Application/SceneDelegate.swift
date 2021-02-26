@@ -11,8 +11,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    // swiftlint:disable:next force_cast
     var appDelegate: AppDelegate {
+        // swiftlint:disable:next force_cast
         return UIApplication.shared.delegate as! AppDelegate
     }
 
@@ -59,6 +59,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
 }
-
