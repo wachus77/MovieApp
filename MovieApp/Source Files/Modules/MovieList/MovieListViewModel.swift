@@ -28,6 +28,8 @@ final class MovieListViewModel {
 
     private var moviesList: [Movie] = []
 
+    var showHideError: ((String?) -> Void)?
+
     var showHideNoMoreMovies: ((Bool) -> Void)?
 
     var noMoreMovies: Bool = false {
@@ -63,6 +65,7 @@ final class MovieListViewModel {
         clearRequestParameters()
 
         guard let searchText = searchText, !searchText.isEmpty else {
+            self.showHideError?(nil)
             return
         }
 
@@ -76,11 +79,20 @@ final class MovieListViewModel {
         }
     }
 
+    func clearMoviesList() {
+        moviesList.removeAll()
+        var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
+        snapshot.appendSections([.movies])
+        snapshot.appendItems(self.moviesList, toSection: .movies)
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+
     private func makeGetMoviesRequest() {
         guard let currentSearchText = currentSearchText else {
             return
         }
-        
+
+        showHideError?(nil)
         isLoading = true
         currentRequestTask?.cancel()
         let request = MovieSearchRequest(search: currentSearchText, page: searchPageNumber)
@@ -97,10 +109,8 @@ final class MovieListViewModel {
                         self.noMoreMovies = true
                     }
                 }
-
-
-            case .failure:
-                print()
+            case .failure(let error):
+                self.showHideError?(error.humanReadableDescription)
             }
         }
     }

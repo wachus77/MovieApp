@@ -9,10 +9,6 @@ import UIKit
 
 final class MovieDetailsViewController: BaseViewController<MovieDetailsView, MovieDetailsViewModel> {
 
-    // MARK: Properties
-
-  
-
     // MARK: Functions
 
     /// - SeeAlso: BaseViewController.setupView
@@ -37,7 +33,20 @@ final class MovieDetailsViewController: BaseViewController<MovieDetailsView, Mov
             self.customView.setupView(movieDetails: movieDetails)
         }
 
+        viewModel.showError = { [weak self] message in
+            guard let self = self else { return }
+            self.showError(message: message)
+        }
     }
 
-}
+    // MARK: Helpers
 
+    func showError(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+}

@@ -38,6 +38,15 @@ final class MovieListView: BaseView {
         return section
     }()
 
+    let errorLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.numberOfLines = 1
+        label.isHidden = true
+        label.textAlignment = .center
+        return label
+    }()
+
     let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         collectionView.backgroundColor = .white
@@ -57,11 +66,16 @@ extension MovieListView: ViewSetupable {
 
     /// - SeeAlso: ViewSetupable.setupViewHierarchy
     func setupViewHierarchy() {
-        addSubviews([collectionView])
+        addSubviews([collectionView, errorLabel])
     }
 
     /// - SeeAlso: ViewSetupable.setupConstraints
     func setupConstraints() {
         collectionView.addConstraints(equalToSuperview(with: .init(top: 10, left: 0, bottom: 0, right: 0), usingSafeArea: true))
+        errorLabel.addConstraints([
+            equal(self, \.leadingAnchor, \.leadingAnchor, constant: 15.0),
+            equal(self, \.topAnchor, \.safeAreaLayoutGuide.topAnchor, constant: 15.0),
+            equal(self, \.trailingAnchor, \.trailingAnchor, constant: 15.0)
+        ])
     }
 }

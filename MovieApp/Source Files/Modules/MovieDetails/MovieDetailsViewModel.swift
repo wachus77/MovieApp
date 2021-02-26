@@ -14,6 +14,8 @@ final class MovieDetailsViewModel {
 
     private let movieId: String
 
+    var showError: ((String) -> Void)?
+
     var updateMovieDetailsView: ((MovieDetailsResponse) -> Void)?
 
     // MARK: Initalization
@@ -33,8 +35,8 @@ final class MovieDetailsViewModel {
             switch result {
             case let .success(response):
                 self.updateMovieDetailsView?(response)
-            case .failure:
-                print()
+            case .failure(let error):
+                self.showError?(error.humanReadableDescription)
             }
         }
     }

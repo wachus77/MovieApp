@@ -8,6 +8,7 @@
 import UIKit
 
 class MoviesFooterSuplementaryView: UICollectionReusableView {
+
     let noMorePlacesLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black

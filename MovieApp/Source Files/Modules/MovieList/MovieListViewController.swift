@@ -56,6 +56,17 @@ final class MovieListViewController: BaseViewController<MovieListView, MovieList
             guard let self = self else { return }
             self.footerView?.spinner.isHidden = !result
         }
+
+        viewModel.showHideError = { [weak self] message in
+            guard let self = self else { return }
+            guard let message = message else {
+                self.customView.errorLabel.isHidden = true
+                return
+            }
+            self.viewModel.clearMoviesList()
+            self.customView.errorLabel.isHidden = false
+            self.customView.errorLabel.text = message
+        }
     }
 
     private func setupSearchController() {
