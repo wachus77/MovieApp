@@ -15,14 +15,12 @@ final class MoviesFooterSuplementaryView: UICollectionReusableView {
         label.numberOfLines = 1
         // todo localozable
         label.text = "no more places"
-        label.isHidden = true
         return label
     }()
 
     let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.color = .gray
-        spinner.isHidden = true
         return spinner
     }()
 
@@ -46,10 +44,6 @@ final class MoviesFooterSuplementaryView: UICollectionReusableView {
     @available(*, unavailable, message: "Use init(frame:) method instead")
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override func layoutSubviews() {
-        spinner.startAnimating()
     }
 
 }

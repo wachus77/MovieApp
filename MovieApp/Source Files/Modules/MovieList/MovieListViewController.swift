@@ -55,6 +55,11 @@ final class MovieListViewController: BaseViewController<MovieListView, MovieList
         viewModel.showHideLoadingState = { [weak self] result in
             guard let self = self else { return }
             self.footerView?.spinner.isHidden = !result
+            if result == true {
+                self.footerView?.spinner.startAnimating()
+            } else {
+                self.footerView?.spinner.stopAnimating()
+            }
         }
 
         viewModel.showHideError = { [weak self] message in
