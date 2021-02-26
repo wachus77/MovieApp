@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class MovieDetailsView: BaseView {
 
@@ -353,19 +354,39 @@ final class MovieDetailsView: BaseView {
         yearLabel.text = movieDetails.year
         categoryLabel.text = movieDetails.categories
         runtimeLabel.text = movieDetails.runtime
-        ratingLabel.text = movieDetails.imdbRating
+
+        let config = UIImage.SymbolConfiguration(pointSize: 17, weight: .regular, scale: .small)
+
+        let ratingLabelString = NSMutableAttributedString(string: "")
+        let ratingAttachment = NSTextAttachment()
+        ratingAttachment.image = UIImage(systemName: "star", withConfiguration: config)
+        let ratingImage = NSAttributedString(attachment: ratingAttachment)
+        ratingLabelString.append(ratingImage)
+        ratingLabelString.append(NSAttributedString(string: " \(movieDetails.imdbRating)"))
+        ratingLabel.attributedText = ratingLabelString
+
         plotLabel.text = movieDetails.plot
         scoreLabel.text = movieDetails.score
         votesLabel.text = movieDetails.imdbVotes
-        boxOfficeLabel.text = movieDetails.boxOffice
+
+        let boxOfficeLabelString = NSMutableAttributedString(string: "")
+        let boxOfficeAttachment = NSTextAttachment()
+        boxOfficeAttachment.image = UIImage(systemName: "dollarsign.circle.fill", withConfiguration: config)
+        let boxOfficeImage = NSAttributedString(attachment: boxOfficeAttachment)
+        boxOfficeLabelString.append(boxOfficeImage)
+        boxOfficeLabelString.append(NSAttributedString(string: " \(movieDetails.boxOffice)"))
+        boxOfficeLabel.attributedText = boxOfficeLabelString
         directorLabel.text = movieDetails.director
         writerLabel.text = movieDetails.writer
         actorsLabel.text = movieDetails.actors
 
         guard let url = URL(string: movieDetails.posterUrl), movieDetails.posterUrl != "N/A" else { return }
-
         imageView.kf.indicatorType = .activity
-        imageView.kf.setImage(with: url)
+        KF.url(url)
+          .placeholder(UIImage(named: "noImage"))
+          .cacheMemoryOnly()
+          .fade(duration: 0.25)
+          .set(to: imageView)
     }
 }
 
@@ -420,7 +441,7 @@ extension MovieDetailsView: ViewSetupable {
         ])
 
         dotSecondLabel.addConstraints([
-            equal(ratingLabel, \.leadingAnchor, \.leadingAnchor, constant: 5.0),
+            equal(ratingLabel, \.leadingAnchor, \.leadingAnchor, constant: -5.0),
             equal(ratingLabel, \.topAnchor, \.topAnchor, constant: 0.0),
             equal(ratingLabel, \.bottomAnchor, \.bottomAnchor, constant: 0.0)
         ])

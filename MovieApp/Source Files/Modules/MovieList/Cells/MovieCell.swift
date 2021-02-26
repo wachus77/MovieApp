@@ -54,9 +54,12 @@ final class MovieCell: UICollectionViewCell {
         titleLabel.text = movie.title
 
         guard let url = URL(string: movie.posterUrl), movie.posterUrl != "N/A" else { return }
-
         imageView.kf.indicatorType = .activity
-        imageView.kf.setImage(with: url)
+        KF.url(url)
+          .placeholder(UIImage(named: "noImage"))
+          .cacheMemoryOnly()
+          .fade(duration: 0.25)
+          .set(to: imageView)
     }
 }
 
