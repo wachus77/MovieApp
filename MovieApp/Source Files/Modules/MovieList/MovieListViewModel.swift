@@ -24,9 +24,9 @@ final class MovieListViewModel {
 
     private var currentSearchText: String?
 
-    private var searchPageNumber: Int = 1
+    var searchPageNumber: Int = 1
 
-    private var moviesList: [Movie] = []
+    var moviesList: [Movie] = []
 
     var showHideError: ((String?) -> Void)?
 
@@ -128,7 +128,7 @@ final class MovieListViewModel {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 
-    private func clearRequestParameters() {
+    func clearRequestParameters() {
         moviesList.removeAll()
         noMoreMovies = false
         searchPageNumber = 1

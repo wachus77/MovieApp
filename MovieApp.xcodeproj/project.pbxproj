@@ -52,6 +52,8 @@
 		089A42A025E9822A00CA612C /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A429F25E9822A00CA612C /* APIClientTests.swift */; };
 		089A42A625E982D500CA612C /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A42A525E982D500CA612C /* URLProtocolMock.swift */; };
 		089A42AB25E9830B00CA612C /* APIMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A42AA25E9830B00CA612C /* APIMocks.swift */; };
+		089A42B525E992F600CA612C /* MovieDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A42B425E992F600CA612C /* MovieDetailsViewModelTests.swift */; };
+		089A42BD25E9930B00CA612C /* MovieListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A42BC25E9930B00CA612C /* MovieListViewModelTests.swift */; };
 		08BAD08225E68EB6007795DC /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08125E68EB6007795DC /* Movie.swift */; };
 		08BAD08B25E68F8A007795DC /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08A25E68F8A007795DC /* MovieCell.swift */; };
 		08BAD09025E6A6C2007795DC /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */; };
@@ -142,6 +144,8 @@
 		089A429F25E9822A00CA612C /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
 		089A42A525E982D500CA612C /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
 		089A42AA25E9830B00CA612C /* APIMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMocks.swift; sourceTree = "<group>"; };
+		089A42B425E992F600CA612C /* MovieDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		089A42BC25E9930B00CA612C /* MovieListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModelTests.swift; sourceTree = "<group>"; };
 		08BAD08125E68EB6007795DC /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		08BAD08A25E68F8A007795DC /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 		083BC85725E57C6600F8833F /* MovieAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				089A42B225E9927300CA612C /* Modules */,
 				089A428025E97CAB00CA612C /* Helpers */,
 				089A426F25E97B4F00CA612C /* Supporting Files */,
 				089A425D25E9782700CA612C /* API */,
@@ -423,6 +428,23 @@
 				089A42AA25E9830B00CA612C /* APIMocks.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		089A42B225E9927300CA612C /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				089A42B325E9927A00CA612C /* ViewModels */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		089A42B325E9927A00CA612C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				089A42BC25E9930B00CA612C /* MovieListViewModelTests.swift */,
+				089A42B425E992F600CA612C /* MovieDetailsViewModelTests.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		08BAD07C25E68A4E007795DC /* Resources */ = {
@@ -704,6 +726,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				089A42B525E992F600CA612C /* MovieDetailsViewModelTests.swift in Sources */,
 				089A429325E97E9000CA612C /* MovieDetailsResponseTests.swift in Sources */,
 				089A428225E97CC300CA612C /* TestBundleJSONDecoder.swift in Sources */,
 				089A429B25E981B400CA612C /* APIClientConfigurationTests.swift in Sources */,
@@ -711,6 +734,7 @@
 				089A426025E9788900CA612C /* MovieSearchRequestTests.swift in Sources */,
 				089A428B25E97D5A00CA612C /* MovieSearchResponseTests.swift in Sources */,
 				089A426825E97A8900CA612C /* MovieDetailsRequestTests.swift in Sources */,
+				089A42BD25E9930B00CA612C /* MovieListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
