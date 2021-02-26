@@ -28,6 +28,8 @@ enum APIClientError: HumanReadableError {
     case urlError(URLError)
     /// / Something really weird happend. Cannot detect the error.
     case unknownError
+    /// / Received error messages from the backend.
+    case singleError(ErrorMessage)
 
     // MARK: Properties
 
@@ -70,6 +72,8 @@ enum APIClientError: HumanReadableError {
             return "url error: \(urlError.localizedDescription)"
         case .unknownError:
             return "An unknown network error has occurred."
+        case let .singleError(error):
+            return error.message
         }
     }
 
@@ -128,4 +132,3 @@ enum APIResponseValidationError: Error {
         }
     }
 }
-

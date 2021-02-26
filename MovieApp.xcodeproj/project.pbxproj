@@ -41,6 +41,7 @@
 		0886843725E8190A00D053F7 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0886843625E8190A00D053F7 /* MovieDetailsViewController.swift */; };
 		0886843C25E8191B00D053F7 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0886843B25E8191B00D053F7 /* MovieDetailsViewModel.swift */; };
 		0886844125E8192700D053F7 /* MovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0886844025E8192700D053F7 /* MovieDetailsView.swift */; };
+		089A425925E950E700CA612C /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A425825E950E700CA612C /* ErrorMessage.swift */; };
 		08BAD08225E68EB6007795DC /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08125E68EB6007795DC /* Movie.swift */; };
 		08BAD08B25E68F8A007795DC /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08A25E68F8A007795DC /* MovieCell.swift */; };
 		08BAD09025E6A6C2007795DC /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */; };
@@ -120,6 +121,7 @@
 		0886843625E8190A00D053F7 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		0886843B25E8191B00D053F7 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		0886844025E8192700D053F7 /* MovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsView.swift; sourceTree = "<group>"; };
+		089A425825E950E700CA612C /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		08BAD08125E68EB6007795DC /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		08BAD08A25E68F8A007795DC /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				08BAD0BC25E6B991007795DC /* APIClientError.swift */,
 				08BAD0C125E6B9B8007795DC /* HumanReadableError.swift */,
 				08BAD0CB25E6BB73007795DC /* APIClient.swift */,
+				089A425825E950E700CA612C /* ErrorMessage.swift */,
 			);
 			path = Abstraction;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				083BC8FC25E58B2400F8833F /* DefaultAppFoundation.swift in Sources */,
 				08BAD08225E68EB6007795DC /* Movie.swift in Sources */,
 				083BC90125E58BEF00F8833F /* AppFlowController.swift in Sources */,
+				089A425925E950E700CA612C /* ErrorMessage.swift in Sources */,
 				083BC8C525E5870100F8833F /* AppFoundation.swift in Sources */,
 				083BC89525E5840C00F8833F /* BaseViewController.swift in Sources */,
 				08BAD0B325E6B8E6007795DC /* APIRequestModel.swift in Sources */,

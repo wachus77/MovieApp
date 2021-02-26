@@ -43,8 +43,16 @@ final class DefaultAPIClient: NSObject, APIClient {
             DispatchQueue.main.async { completion(result) }
         }
 
-        let resolveFailure: (APIClientError, Data?) -> Void = { error, _ in
-            let result: Result<Request.Response, APIClientError> = .failure(error)
+        let resolveFailure: (APIClientError, Data?) -> Void = { error, data in
+            guard
+                let data = data,
+                let singleAPIErrorMessage = try? JSONDecoder().decode(ErrorMessage.self, from: data)
+            else {
+                let result: Result<Request.Response, APIClientError> = .failure(error)
+                DispatchQueue.main.async { completion(result) }
+                return
+            }
+            let result: Result<Request.Response, APIClientError> = .failure(.singleError(singleAPIErrorMessage))
             DispatchQueue.main.async { completion(result) }
         }
 
