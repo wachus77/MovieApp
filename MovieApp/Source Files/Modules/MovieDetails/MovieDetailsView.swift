@@ -138,6 +138,7 @@ final class MovieDetailsView: BaseView {
         label.textColor = .black
         label.numberOfLines = 1
         label.text = "·"
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.textAlignment = .center
         return label
     }()
@@ -147,6 +148,7 @@ final class MovieDetailsView: BaseView {
         label.textColor = .black
         label.numberOfLines = 1
         label.text = "·"
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.textAlignment = .center
         return label
     }()
@@ -466,14 +468,14 @@ extension MovieDetailsView: ViewSetupable {
 
         dotLabel.addConstraints([
             equal(\.widthAnchor, to: 5),
-            equal(categoryLabel, \.trailingAnchor, \.trailingAnchor, constant: 5.0),
+            equal(categoryLabel, \.trailingAnchor, \.trailingAnchor, constant: 10.0),
             equal(categoryLabel, \.topAnchor, \.topAnchor, constant: 0.0),
             equal(categoryLabel, \.bottomAnchor, \.bottomAnchor, constant: 0.0)
         ])
 
         dotSecondLabel.addConstraints([
             equal(\.widthAnchor, to: 5),
-            equal(ratingLabel, \.leadingAnchor, \.leadingAnchor, constant: -5.0),
+            equal(ratingLabel, \.leadingAnchor, \.leadingAnchor, constant: -10.0),
             equal(ratingLabel, \.topAnchor, \.topAnchor, constant: 0.0),
             equal(ratingLabel, \.bottomAnchor, \.bottomAnchor, constant: 0.0)
         ])

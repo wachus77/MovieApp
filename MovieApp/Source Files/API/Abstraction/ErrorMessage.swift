@@ -11,7 +11,6 @@ struct ErrorMessage: Decodable {
 
     // MARK: Properties
     let response: String
-    /// Error message.
     let message: String
 }
 
