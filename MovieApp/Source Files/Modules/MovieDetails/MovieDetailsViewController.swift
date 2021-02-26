@@ -32,6 +32,16 @@ final class MovieDetailsViewController: BaseViewController<MovieDetailsView, Mov
     /// - SeeAlso: BaseViewController.setupCallbacks
     override func setupCallbacks() {
 
+        viewModel.showHideLoadingState = { [weak self] result in
+            guard let self = self else { return }
+
+        }
+
+        viewModel.updateMovieDetailsView = { [weak self] movieDetails in
+            guard let self = self else { return }
+            self.customView.setupView(movieDetails: movieDetails)
+        }
+
     }
 
 }

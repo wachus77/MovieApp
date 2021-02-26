@@ -28,7 +28,7 @@ final class MovieDetailsView: BaseView {
     private lazy var topStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel, yearLabel])
         stackView.axis = .vertical
-        stackView.spacing = 5
+        stackView.spacing = 7
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.layoutMargins = UIEdgeInsets(top: 15, left: 30, bottom: 15, right: 30)
@@ -48,7 +48,6 @@ final class MovieDetailsView: BaseView {
         label.textColor = .black
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "Title"
         return label
     }()
 
@@ -57,7 +56,6 @@ final class MovieDetailsView: BaseView {
         label.textColor = .orange
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "Year"
         return label
     }()
 
@@ -158,12 +156,11 @@ final class MovieDetailsView: BaseView {
         label.textColor = .black
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races."
         return label
     }()
 
     private lazy var ratingStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [scoreStackView, reviewsStackView, votesStackView])
+        let stackView = UIStackView(arrangedSubviews: [scoreStackView, votesStackView, boxOfficeStackView])
         stackView.axis = .horizontal
         stackView.spacing = 5
         stackView.alignment = .center
@@ -194,34 +191,6 @@ final class MovieDetailsView: BaseView {
         label.textColor = .black
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "7.2"
-        return label
-    }()
-
-    private lazy var reviewsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [reviewsTitleLabel, reviewsLabel])
-        stackView.axis = .vertical
-        stackView.spacing = 3
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        return stackView
-    }()
-
-    private let reviewsTitleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .orange
-        label.numberOfLines = 1
-        // todo localizable
-        label.text = "Reviews"
-        return label
-    }()
-
-    private let reviewsLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.text = "800"
         return label
     }()
 
@@ -239,7 +208,7 @@ final class MovieDetailsView: BaseView {
         label.textColor = .orange
         label.numberOfLines = 1
         // todo localizable
-        label.text = "Votes"
+        label.text = "Reviews"
         return label
     }()
 
@@ -248,7 +217,32 @@ final class MovieDetailsView: BaseView {
         label.textColor = .black
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "442,233"
+        return label
+    }()
+
+    private lazy var boxOfficeStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [boxOfficeTitleLabel, boxOfficeLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 3
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        return stackView
+    }()
+
+    private let boxOfficeTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .orange
+        label.numberOfLines = 1
+        // todo localizable
+        label.text = "Box Office"
+        return label
+    }()
+
+    private let boxOfficeLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
 
@@ -298,7 +292,6 @@ final class MovieDetailsView: BaseView {
         label.textColor = .black
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "Billy buuuuzka"
         return label
     }()
 
@@ -330,7 +323,6 @@ final class MovieDetailsView: BaseView {
         label.textColor = .black
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "Nicole Perlman (story by), Meg LeFauve (story by), Anna Boden (story by), Ryan Fleck (story by), Geneva Robertson-Dworet (story by)"
         return label
     }()
 
@@ -353,9 +345,28 @@ final class MovieDetailsView: BaseView {
         label.textColor = .black
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "Brie Larson, Samuel L. Jackson, Ben Mendelsohn, Jude Law"
         return label
     }()
+
+    func setupView(movieDetails: MovieDetailsResponse) {
+        titleLabel.text = movieDetails.title
+        yearLabel.text = movieDetails.year
+        categoryLabel.text = movieDetails.categories
+        runtimeLabel.text = movieDetails.runtime
+        ratingLabel.text = movieDetails.imdbRating
+        plotLabel.text = movieDetails.plot
+        scoreLabel.text = movieDetails.score
+        votesLabel.text = movieDetails.imdbVotes
+        boxOfficeLabel.text = movieDetails.boxOffice
+        directorLabel.text = movieDetails.director
+        writerLabel.text = movieDetails.writer
+        actorsLabel.text = movieDetails.actors
+
+        guard let url = URL(string: movieDetails.posterUrl), movieDetails.posterUrl != "N/A" else { return }
+
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: url)
+    }
 }
 
 extension MovieDetailsView: ViewSetupable {

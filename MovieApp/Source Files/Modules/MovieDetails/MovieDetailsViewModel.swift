@@ -22,6 +22,8 @@ final class MovieDetailsViewModel {
         }
     }
 
+    var updateMovieDetailsView: ((MovieDetailsResponse) -> Void)?
+
     // MARK: Initalization
 
     /// Initializes an instance of the receiver.
@@ -40,8 +42,7 @@ final class MovieDetailsViewModel {
             self.isLoading = false
             switch result {
             case let .success(response):
-                print(response.title)
-                print(response.year)
+                self.updateMovieDetailsView?(response)
             case .failure:
                 print()
             }

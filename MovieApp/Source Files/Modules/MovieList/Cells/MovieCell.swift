@@ -25,7 +25,7 @@ final class MovieCell: UICollectionViewCell {
     }()
 
     private let imageView: UIImageView = {
-        let imageView = UIImageView()
+        let imageView = UIImageView(image: UIImage(named: "noImage"))
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         return imageView
@@ -53,7 +53,7 @@ final class MovieCell: UICollectionViewCell {
     func setupCell(movie: Movie) {
         titleLabel.text = movie.title
 
-        guard let url = URL(string: movie.posterUrl) else { return }
+        guard let url = URL(string: movie.posterUrl), movie.posterUrl != "N/A" else { return }
 
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: url)
