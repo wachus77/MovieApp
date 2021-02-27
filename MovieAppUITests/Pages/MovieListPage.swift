@@ -12,8 +12,11 @@ final class MovieListPage: BaseAppPage {
     // MARK: Elements
 
     private var searchField: XCUIElement {
-        app.otherElements["search-bar"].searchFields.firstMatch
-        //app.searchFields["search-bar"].firstMatch
+        app.searchFields["search-bar"].firstMatch
+    }
+
+    private var captainMarvelCell: XCUIElement {
+        app.cells.staticTexts["Captain Marvel"].firstMatch
     }
 
     // MARK: Actions
@@ -21,5 +24,13 @@ final class MovieListPage: BaseAppPage {
     func type(searchText: String) {
         searchField.tap()
         searchField.typeText(searchText)
+    }
+
+    func waitUntilMoviesAreVisible() {
+        _ = captainMarvelCell.waitForExistence(timeout: 2)
+    }
+
+    func tapCell() {
+        captainMarvelCell.tap()
     }
 }
