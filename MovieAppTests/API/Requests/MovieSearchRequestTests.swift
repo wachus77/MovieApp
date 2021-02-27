@@ -30,5 +30,4 @@ final class MovieSearchRequestTests: XCTestCase {
         XCTAssertEqual(sut.page, 1)
         XCTAssertEqual(sut.queryItems, [URLQueryItem(name: "apikey", value: "b9bd48a6"), URLQueryItem(name: "s", value: "test search"), URLQueryItem(name: "type", value: "movie"), URLQueryItem(name: "page", value: "1")])
     }
-
 }

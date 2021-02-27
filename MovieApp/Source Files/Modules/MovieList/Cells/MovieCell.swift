@@ -5,8 +5,8 @@
 //  Created by TIWASZEK on 24/02/2021.
 //
 
-import UIKit
 import Kingfisher
+import UIKit
 
 final class MovieCell: UICollectionViewCell {
     // MARK: Properties
@@ -56,10 +56,10 @@ final class MovieCell: UICollectionViewCell {
         guard let url = URL(string: movie.posterUrl), movie.posterUrl != "N/A" else { return }
         imageView.kf.indicatorType = .activity
         KF.url(url)
-          .placeholder(UIImage(named: "noImage"))
-          .cacheMemoryOnly()
-          .fade(duration: 0.25)
-          .set(to: imageView)
+            .placeholder(UIImage(named: "noImage"))
+            .cacheMemoryOnly()
+            .fade(duration: 0.25)
+            .set(to: imageView)
     }
 }
 

@@ -16,7 +16,7 @@ protocol HumanReadableStringConvertible: CustomStringConvertible {
 extension HumanReadableStringConvertible {
     /// - SeeAlso: CustomStringConvertible.description
     var description: String {
-        return humanReadableDescription
+        humanReadableDescription
     }
 }
 

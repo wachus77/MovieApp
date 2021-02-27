@@ -9,6 +9,7 @@ import Foundation
 
 struct MovieDetailsResponse: APIResponse {
     // MARK: Properties
+
     let title: String
     let year: String
     let runtime: String

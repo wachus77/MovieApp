@@ -6,8 +6,8 @@
 //
 
 @testable import MovieApp
-import XCTest
 import SnapshotTesting
+import XCTest
 
 final class MovieDetailsViewControllerSnapTests: XCTestCase {
 

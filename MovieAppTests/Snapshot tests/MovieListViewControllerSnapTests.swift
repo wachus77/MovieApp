@@ -6,8 +6,8 @@
 //
 
 @testable import MovieApp
-import XCTest
 import SnapshotTesting
+import XCTest
 
 final class MovieListViewControllerSnapTests: XCTestCase {
 
@@ -51,5 +51,4 @@ final class MovieListViewControllerSnapTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 4)
     }
-
 }

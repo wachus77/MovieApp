@@ -35,12 +35,12 @@ enum APIClientError: HumanReadableError {
 
     /// Whether error is caused by "400 BAD REQUEST" status code.
     var isBadRequestStatusCode: Bool {
-        return error(dueToStatusCode: 400)
+        error(dueToStatusCode: 400)
     }
 
     /// Whether error is caused by "401 UNAUTHORIZED" status code.
     var isUnauthorizedStatusCode: Bool {
-        return error(dueToStatusCode: 401)
+        error(dueToStatusCode: 401)
     }
 
     /// Whether error is caused by timed out request.

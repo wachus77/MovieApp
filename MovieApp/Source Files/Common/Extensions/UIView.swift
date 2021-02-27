@@ -68,8 +68,8 @@ extension UIView {
 ///   - to: constraints key path
 /// - Returns: created constraint
 func equal<Anchor, Axis>(_ view: UIView, _ to: KeyPath<UIView, Anchor>) -> Constraint where Anchor: NSLayoutAnchor<Axis> { { layoutView in
-        layoutView[keyPath: to].constraint(equalTo: view[keyPath: to])
-    }
+    layoutView[keyPath: to].constraint(equalTo: view[keyPath: to])
+}
 }
 
 /// Describes constraint that will be equal to constant
@@ -80,10 +80,10 @@ func equal<Anchor, Axis>(_ view: UIView, _ to: KeyPath<UIView, Anchor>) -> Const
 ///   - constant: value
 /// - Returns: created constraint
 func equal<LayoutDimension>(_ keyPath: KeyPath<UIView, LayoutDimension>, to constant: CGFloat, identifier: String? = nil) -> Constraint where LayoutDimension: NSLayoutDimension { { layoutView in
-        let constraint = layoutView[keyPath: keyPath].constraint(equalToConstant: constant)
-        constraint.identifier = identifier
-        return constraint
-    }
+    let constraint = layoutView[keyPath: keyPath].constraint(equalToConstant: constant)
+    constraint.identifier = identifier
+    return constraint
+}
 }
 
 /// Describes constraint that will be greater or equal to constant
@@ -94,10 +94,10 @@ func equal<LayoutDimension>(_ keyPath: KeyPath<UIView, LayoutDimension>, to cons
 ///   - greaterOrEqual: value
 /// - Returns: created constraint
 func equal<LayoutDimension>(_ keyPath: KeyPath<UIView, LayoutDimension>, greaterOrEqual: CGFloat = 0, identifier: String? = nil) -> Constraint where LayoutDimension: NSLayoutDimension { { layoutView in
-        let constraint = layoutView[keyPath: keyPath].constraint(greaterThanOrEqualToConstant: greaterOrEqual)
-        constraint.identifier = identifier
-        return constraint
-    }
+    let constraint = layoutView[keyPath: keyPath].constraint(greaterThanOrEqualToConstant: greaterOrEqual)
+    constraint.identifier = identifier
+    return constraint
+}
 }
 
 /// Describes relation between constraints of two views
@@ -111,10 +111,10 @@ func equal<LayoutDimension>(_ keyPath: KeyPath<UIView, LayoutDimension>, greater
 ///   - multiplier: value
 /// - Returns: created constraint
 func equal<LayoutDimension>(_ view: UIView, _ from: KeyPath<UIView, LayoutDimension>, to: KeyPath<UIView, LayoutDimension>, constant: CGFloat = 0, multiplier: CGFloat = 1, identifier: String? = nil) -> Constraint where LayoutDimension: NSLayoutDimension { { layoutView in
-        let constraint = layoutView[keyPath: from].constraint(equalTo: view[keyPath: to], multiplier: multiplier, constant: constant)
-        constraint.identifier = identifier
-        return constraint
-    }
+    let constraint = layoutView[keyPath: from].constraint(equalTo: view[keyPath: to], multiplier: multiplier, constant: constant)
+    constraint.identifier = identifier
+    return constraint
+}
 }
 
 /// Describes relation between constraints of two views
@@ -128,10 +128,10 @@ func equal<LayoutDimension>(_ view: UIView, _ from: KeyPath<UIView, LayoutDimens
 ///   - constant: value
 /// - Returns: created constraint
 func equal<Anchor, Axis>(_ view: UIView, _ from: KeyPath<UIView, Anchor>, _ to: KeyPath<UIView, Anchor>, constant: CGFloat = 0, identifier: String? = nil) -> Constraint where Anchor: NSLayoutAnchor<Axis> { { layoutView in
-        let constraint = layoutView[keyPath: from].constraint(equalTo: view[keyPath: to], constant: constant)
-        constraint.identifier = identifier
-        return constraint
-    }
+    let constraint = layoutView[keyPath: from].constraint(equalTo: view[keyPath: to], constant: constant)
+    constraint.identifier = identifier
+    return constraint
+}
 }
 
 /// Describes relation between constraints of two views
@@ -145,10 +145,10 @@ func equal<Anchor, Axis>(_ view: UIView, _ from: KeyPath<UIView, Anchor>, _ to: 
 ///   - constant: value
 /// - Returns: created constraint
 func equal<Anchor, Axis>(_ view: UIView, _ from: KeyPath<UIView, Anchor>, _ to: KeyPath<UIView, Anchor>, lessOrEqual: CGFloat = 0, identifier: String? = nil) -> Constraint where Anchor: NSLayoutAnchor<Axis> { { layoutView in
-        let constraint = layoutView[keyPath: from].constraint(lessThanOrEqualTo: view[keyPath: to], constant: lessOrEqual)
-        constraint.identifier = identifier
-        return constraint
-    }
+    let constraint = layoutView[keyPath: from].constraint(lessThanOrEqualTo: view[keyPath: to], constant: lessOrEqual)
+    constraint.identifier = identifier
+    return constraint
+}
 }
 
 /// Describes relation between constraints of two views
@@ -162,10 +162,10 @@ func equal<Anchor, Axis>(_ view: UIView, _ from: KeyPath<UIView, Anchor>, _ to: 
 ///   - constant: value
 /// - Returns: created constraint
 func equal<Anchor, Axis>(_ view: UIView, _ from: KeyPath<UIView, Anchor>, _ to: KeyPath<UIView, Anchor>, greaterOrEqual: CGFloat = 0, identifier: String? = nil) -> Constraint where Anchor: NSLayoutAnchor<Axis> { { layoutView in
-        let constraint = layoutView[keyPath: from].constraint(greaterThanOrEqualTo: view[keyPath: to], constant: greaterOrEqual)
-        constraint.identifier = identifier
-        return constraint
-    }
+    let constraint = layoutView[keyPath: from].constraint(greaterThanOrEqualTo: view[keyPath: to], constant: greaterOrEqual)
+    constraint.identifier = identifier
+    return constraint
+}
 }
 
 /// Describes constraints from diffrent views where anchors should match with passed offset

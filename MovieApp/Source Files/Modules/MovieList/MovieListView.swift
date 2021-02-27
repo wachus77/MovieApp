@@ -18,7 +18,7 @@ final class MovieListView: BaseView {
         let item = NSCollectionLayoutItem(layoutSize: itemLayoutSize)
 
         let groupLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                heightDimension: .fractionalHeight(0.4))
+                                                     heightDimension: .fractionalHeight(0.4))
 
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupLayoutSize, subitem: item, count: 2)
         group.interItemSpacing = .fixed(15)
@@ -55,7 +55,6 @@ final class MovieListView: BaseView {
         collectionView.clipsToBounds = false
         return collectionView
     }()
-
 }
 
 extension MovieListView: ViewSetupable {

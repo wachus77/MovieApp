@@ -42,11 +42,10 @@ final class MovieDetailsViewController: BaseViewController<MovieDetailsView, Mov
 
     func showError(message: String) {
         let alert = UIAlertController(title: Localizable.Alerts.error.text, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: Localizable.Alerts.ok.text, style: .default) { (_) in
+        let okAction = UIAlertAction(title: Localizable.Alerts.ok.text, style: .default) { _ in
             self.navigationController?.popViewController(animated: true)
         }
         alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
-
 }

@@ -28,5 +28,4 @@ final class MovieDetailsRequestTests: XCTestCase {
         XCTAssertEqual(sut.imdbID, "dda2")
         XCTAssertEqual(sut.queryItems, [URLQueryItem(name: "apikey", value: "b9bd48a6"), URLQueryItem(name: "i", value: "dda2")])
     }
-
 }

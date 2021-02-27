@@ -26,7 +26,6 @@ final class APIClientConfigurationTests: XCTestCase {
         XCTAssertEqual(sut.baseURL.absoluteString, "http://testing.com")
         XCTAssertEqual(sut.scheme, .http)
     }
-
 }
 
 // MARK: Mocks
@@ -35,4 +34,3 @@ private struct MockAPIClientConfiguration: APIClientConfiguration {
     var scheme: Scheme = .http
     var host: String = "testing.com"
 }
-

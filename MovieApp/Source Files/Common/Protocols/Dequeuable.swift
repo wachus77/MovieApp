@@ -13,6 +13,6 @@ protocol Dequeueable {
 
 extension Dequeueable {
     static var defaultReuseIdentifier: String {
-        return String(describing: self)
+        String(describing: self)
     }
 }

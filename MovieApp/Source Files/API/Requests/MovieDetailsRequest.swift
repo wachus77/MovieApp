@@ -16,15 +16,15 @@ struct MovieDetailsRequest: APIRequestModel {
 
     /// - SeeAlso: APIRequestModel.method
     var method: APIRequestMethod {
-        return .get
+        .get
     }
 
     /// - SeeAlso: APIRequestModel.path
     var path: String {
-        return .empty
+        .empty
     }
 
     var queryItems: [URLQueryItem]? {
-        return [URLQueryItem(name: "apikey", value: apiKey), URLQueryItem(name: "i", value: imdbID)]
+        [URLQueryItem(name: "apikey", value: apiKey), URLQueryItem(name: "i", value: imdbID)]
     }
 }

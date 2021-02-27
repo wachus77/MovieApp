@@ -21,7 +21,7 @@ final class MovieDetailsViewModel {
     var movieDetails: MovieDetailsResponse? {
         didSet {
             guard let movieDetails = movieDetails else { return }
-            self.updateMovieDetailsView?(movieDetails)
+            updateMovieDetailsView?(movieDetails)
         }
     }
 
@@ -45,7 +45,7 @@ final class MovieDetailsViewModel {
             switch result {
             case let .success(response):
                 self.movieDetails = response
-            case .failure(let error):
+            case let .failure(error):
                 self.showError?(error.humanReadableDescription)
             }
         }

@@ -9,6 +9,7 @@ import Foundation
 
 struct MovieSearchResponse: APIResponse {
     // MARK: Properties
+
     let totalResults: String
     let moviesList: [Movie]
 }

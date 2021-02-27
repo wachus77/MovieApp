@@ -5,8 +5,8 @@
 //  Created by TIWASZEK on 25/02/2021.
 //
 
-import UIKit
 import Kingfisher
+import UIKit
 
 final class MovieDetailsView: BaseView {
 
@@ -38,7 +38,7 @@ final class MovieDetailsView: BaseView {
         return stackView
     }()
 
-    //MARK: TOP STACK VIEW (imageView, titleLabel, yearLabel)
+    // MARK: TOP STACK VIEW (imageView, titleLabel, yearLabel)
 
     private lazy var topStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel, yearLabel])

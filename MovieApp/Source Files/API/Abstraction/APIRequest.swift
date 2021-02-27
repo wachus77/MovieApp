@@ -51,11 +51,10 @@ protocol APIRequest: Encodable {
 
 extension APIRequest {
     var isNoContentResponse: Bool {
-        return false
+        false
     }
 
     var encoder: JSONEncoder {
         JSONEncoder()
     }
 }
-

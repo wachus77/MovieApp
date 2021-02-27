@@ -65,7 +65,7 @@ final class MovieListViewModel {
         clearRequestParameters()
 
         guard let searchText = searchText, !searchText.isEmpty else {
-            self.showHideError?(nil)
+            showHideError?(nil)
             return
         }
 
@@ -83,7 +83,7 @@ final class MovieListViewModel {
         moviesList.removeAll()
         var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
         snapshot.appendSections([.movies])
-        snapshot.appendItems(self.moviesList, toSection: .movies)
+        snapshot.appendItems(moviesList, toSection: .movies)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 
@@ -109,7 +109,7 @@ final class MovieListViewModel {
                         self.noMoreMovies = true
                     }
                 }
-            case .failure(let error):
+            case let .failure(error):
                 // other than cancel
                 if case APIClientError.urlError(URLError.cancelled) = error {
                     return
@@ -121,10 +121,10 @@ final class MovieListViewModel {
 
     /// set data source
     private func setMovies(movieList: [Movie]) {
-        self.moviesList.append(contentsOf: movieList)
+        moviesList.append(contentsOf: movieList)
         var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
         snapshot.appendSections([.movies])
-        snapshot.appendItems(self.moviesList, toSection: .movies)
+        snapshot.appendItems(moviesList, toSection: .movies)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 
@@ -133,7 +133,6 @@ final class MovieListViewModel {
         noMoreMovies = false
         searchPageNumber = 1
     }
-
 }
 
 extension MovieListViewModel {
@@ -152,7 +151,6 @@ extension MovieListViewModel {
                 cell.setupCell(movie: movie)
                 return cell
             }
-            
         }
     }
 

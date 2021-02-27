@@ -32,5 +32,4 @@ final class MovieDetailsPage: BaseAppPage {
     func waitUntilActorsLabelIsVisible() {
         _ = actorsLabel.waitForExistence(timeout: 2)
     }
-
 }

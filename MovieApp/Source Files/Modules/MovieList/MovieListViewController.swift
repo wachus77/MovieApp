@@ -114,7 +114,7 @@ extension MovieListViewController: UIScrollViewDelegate {
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         let currentOffset = scrollView.contentOffset.y
 
-        if (maximumOffset - currentOffset <= 15) && scrollUpDirection {
+        if maximumOffset - currentOffset <= 15, scrollUpDirection {
             scrollUpDirection = false
             viewModel.scrolledToEndOfCollection()
         }
@@ -131,13 +131,13 @@ extension MovieListViewController {
             indexPath: IndexPath
         ) -> UICollectionReusableView? in
 
-            guard let self = self else { return nil }
+        guard let self = self else { return nil }
 
-            self.footerView = collectionView.dequeueSupplementaryView(kind: kind, dequeueableView: MoviesFooterSuplementaryView.self, forIndexPath: indexPath)
-            self.footerView?.spinner.isHidden = !self.viewModel.isLoading
-            self.footerView?.noMorePlacesLabel.isHidden = !self.viewModel.noMoreMovies
+        self.footerView = collectionView.dequeueSupplementaryView(kind: kind, dequeueableView: MoviesFooterSuplementaryView.self, forIndexPath: indexPath)
+        self.footerView?.spinner.isHidden = !self.viewModel.isLoading
+        self.footerView?.noMorePlacesLabel.isHidden = !self.viewModel.noMoreMovies
 
-            return self.footerView
+        return self.footerView
         }
     }
 }
