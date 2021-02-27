@@ -50,6 +50,7 @@ private extension URLSession {
     )
 
     /// Extra-step where `URLRequest`'s authorization should be handled, before actually performing the URLRequest in `execute()`
+    @discardableResult
     func authenticate(_ networkRequest: NetworkRequest) -> URLSessionDataTask? {
         let currentRetries = networkRequest.currentRetries
         let max = networkRequest.maxRetries

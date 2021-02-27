@@ -260,7 +260,8 @@ final class MovieDetailsView: BaseView {
         let label = UILabel()
         label.textColor = .black
         label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
+        label.lineBreakMode = .byCharWrapping
+        label.textAlignment = .center
         return label
     }()
 
