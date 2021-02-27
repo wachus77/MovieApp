@@ -54,6 +54,7 @@
 		089A42AB25E9830B00CA612C /* APIMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A42AA25E9830B00CA612C /* APIMocks.swift */; };
 		089A42B525E992F600CA612C /* MovieDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A42B425E992F600CA612C /* MovieDetailsViewModelTests.swift */; };
 		089A42BD25E9930B00CA612C /* MovieListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A42BC25E9930B00CA612C /* MovieListViewModelTests.swift */; };
+		089A42DB25EA7F2E00CA612C /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 089A42DA25EA7F2E00CA612C /* SnapshotTesting */; };
 		08BAD08225E68EB6007795DC /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08125E68EB6007795DC /* Movie.swift */; };
 		08BAD08B25E68F8A007795DC /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08A25E68F8A007795DC /* MovieCell.swift */; };
 		08BAD09025E6A6C2007795DC /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */; };
@@ -172,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08BAD0EA25E6CE23007795DC /* Kingfisher in Frameworks */,
+				089A42DB25EA7F2E00CA612C /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +201,7 @@
 				083BC85725E57C6600F8833F /* MovieAppTests */,
 				083BC86225E57C6600F8833F /* MovieAppUITests */,
 				083BC83F25E57C6400F8833F /* Products */,
+				089A42D925EA7F2E00CA612C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -447,6 +450,13 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		089A42D925EA7F2E00CA612C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		08BAD07C25E68A4E007795DC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +538,7 @@
 			name = MovieApp;
 			packageProductDependencies = (
 				08BAD0E925E6CE23007795DC /* Kingfisher */,
+				089A42DA25EA7F2E00CA612C /* SnapshotTesting */,
 			);
 			productName = MovieApp;
 			productReference = 083BC83E25E57C6400F8833F /* MovieApp.app */;
@@ -602,6 +613,7 @@
 			mainGroup = 083BC83525E57C6400F8833F;
 			packageReferences = (
 				08BAD0E825E6CE23007795DC /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				089A42C725EA7D5C00CA612C /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = 083BC83F25E57C6400F8833F /* Products */;
 			projectDirPath = "";
@@ -895,6 +907,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				INFOPLIST_FILE = MovieApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -913,6 +926,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				INFOPLIST_FILE = MovieApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1047,6 +1061,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		089A42C725EA7D5C00CA612C /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.1;
+			};
+		};
 		08BAD0E825E6CE23007795DC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -1058,6 +1080,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		089A42DA25EA7F2E00CA612C /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 089A42C725EA7D5C00CA612C /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
 		08BAD0E925E6CE23007795DC /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 08BAD0E825E6CE23007795DC /* XCRemoteSwiftPackageReference "Kingfisher" */;
