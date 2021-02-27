@@ -286,8 +286,8 @@
 		083BC89325E583BC00F8833F /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
-				083BC89425E5840C00F8833F /* BaseViewController.swift */,
 				083BC89C25E5846C00F8833F /* BaseView.swift */,
+				083BC89425E5840C00F8833F /* BaseViewController.swift */,
 				083BC8B425E5860D00F8833F /* BaseFlowController.swift */,
 				083BC8BE25E5869A00F8833F /* BaseNavigationFlowController.swift */,
 			);
@@ -298,8 +298,8 @@
 			isa = PBXGroup;
 			children = (
 				083BC8A225E584B400F8833F /* ViewSetupable.swift */,
-				083BC8AA25E5855C00F8833F /* NavigationFlowController.swift */,
 				083BC8AF25E5858000F8833F /* FlowController.swift */,
+				083BC8AA25E5855C00F8833F /* NavigationFlowController.swift */,
 				083BC8B925E5862700F8833F /* NavigationDelegate.swift */,
 				08BAD09425E6A709007795DC /* Dequeuable.swift */,
 			);
@@ -367,8 +367,8 @@
 				08BAD08925E68F7C007795DC /* Cells */,
 				083BC90725E58CB900F8833F /* MovieListFlowController.swift */,
 				083BC90F25E58D7400F8833F /* MovieListViewController.swift */,
-				083BC91425E58D9800F8833F /* MovieListView.swift */,
 				083BC91C25E58DD400F8833F /* MovieListViewModel.swift */,
+				083BC91425E58D9800F8833F /* MovieListView.swift */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -532,9 +532,9 @@
 				08BAD0AD25E6B83B007795DC /* APIResponse.swift */,
 				08BAD0B225E6B8E6007795DC /* APIRequestModel.swift */,
 				08BAD0BC25E6B991007795DC /* APIClientError.swift */,
+				089A425825E950E700CA612C /* ErrorMessage.swift */,
 				08BAD0C125E6B9B8007795DC /* HumanReadableError.swift */,
 				08BAD0CB25E6BB73007795DC /* APIClient.swift */,
-				089A425825E950E700CA612C /* ErrorMessage.swift */,
 			);
 			path = Abstraction;
 			sourceTree = "<group>";
