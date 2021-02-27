@@ -50,4 +50,5 @@ final class MovieDetailsViewController: BaseViewController<MovieDetailsView, Mov
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
+
 }

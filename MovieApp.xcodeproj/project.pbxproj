@@ -59,6 +59,7 @@
 		089A431125EA98FC00CA612C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A431025EA98FC00CA612C /* UIViewController.swift */; };
 		089A431725EA997600CA612C /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A431625EA997600CA612C /* XCTestCase.swift */; };
 		089A431F25EA9A1B00CA612C /* TestDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A431E25EA9A1B00CA612C /* TestDevices.swift */; };
+		089A432425EA9B4B00CA612C /* MovieDetailsViewControllerSnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A432325EA9B4B00CA612C /* MovieDetailsViewControllerSnapTests.swift */; };
 		08BAD08225E68EB6007795DC /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08125E68EB6007795DC /* Movie.swift */; };
 		08BAD08B25E68F8A007795DC /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08A25E68F8A007795DC /* MovieCell.swift */; };
 		08BAD09025E6A6C2007795DC /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */; };
@@ -155,6 +156,7 @@
 		089A431025EA98FC00CA612C /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		089A431625EA997600CA612C /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
 		089A431E25EA9A1B00CA612C /* TestDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDevices.swift; sourceTree = "<group>"; };
+		089A432325EA9B4B00CA612C /* MovieDetailsViewControllerSnapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewControllerSnapTests.swift; sourceTree = "<group>"; };
 		08BAD08125E68EB6007795DC /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		08BAD08A25E68F8A007795DC /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 			isa = PBXGroup;
 			children = (
 				089A42F225EA983300CA612C /* MovieListViewControllerSnapTests.swift */,
+				089A432325EA9B4B00CA612C /* MovieDetailsViewControllerSnapTests.swift */,
 				089A431E25EA9A1B00CA612C /* TestDevices.swift */,
 			);
 			path = "Snapshot tests";
@@ -781,6 +784,7 @@
 				089A426825E97A8900CA612C /* MovieDetailsRequestTests.swift in Sources */,
 				089A42BD25E9930B00CA612C /* MovieListViewModelTests.swift in Sources */,
 				089A42F325EA983300CA612C /* MovieListViewControllerSnapTests.swift in Sources */,
+				089A432425EA9B4B00CA612C /* MovieDetailsViewControllerSnapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

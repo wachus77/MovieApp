@@ -417,6 +417,11 @@ final class MovieDetailsView: BaseView {
             .set(to: imageView)
     }
 
+    func scrollToBottom() {
+        let bottomOffset = CGPoint(x: 0, y: scrollView.contentSize.height - scrollView.bounds.size.height)
+        scrollView.setContentOffset(bottomOffset, animated: true)
+    }
+
     override func layoutSubviews() {
         spinner.startAnimating()
     }

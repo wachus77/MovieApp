@@ -45,4 +45,3 @@ enum TestDevices: String, CaseIterable {
         return TestDevices.unknown
     }
 }
-
