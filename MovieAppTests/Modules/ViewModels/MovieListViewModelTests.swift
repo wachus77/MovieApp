@@ -41,43 +41,40 @@ final class MovieListViewModelTests: XCTestCase {
     func testSerchTextHasBeenChanged() {
         sut.getMovies(searchText: "Marvel")
 
-        let expect = expectation(description: "wait to get movies")
-        let waitResult = XCTWaiter.wait(for: [expect], timeout: 1.0)
-        if waitResult == XCTWaiter.Result.timedOut {
+        let expectation = XCTestExpectation()
+        wait(interval: 1) { [unowned self] in
             XCTAssertEqual(sut.moviesList.count, 10)
-        } else {
-            XCTFail("something went wrong")
+            expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 2)
     }
 
     func testScrolledToEndOfCollection() {
         testSerchTextHasBeenChanged()
         sut.scrolledToEndOfCollection()
 
-        let expect = expectation(description: "wait to get movies")
-        let waitResult = XCTWaiter.wait(for: [expect], timeout: 1.0)
-        if waitResult == XCTWaiter.Result.timedOut {
+        let expectation = XCTestExpectation()
+        wait(interval: 1) { [unowned self] in
             XCTAssertEqual(sut.moviesList.count, 20)
-        } else {
-            XCTFail("something went wrong")
+            expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 2)
     }
 
     func testClearRequestParameters() {
         testScrolledToEndOfCollection()
 
-        let expect = expectation(description: "wait to get movies")
-        let waitResult = XCTWaiter.wait(for: [expect], timeout: 1.0)
-        if waitResult == XCTWaiter.Result.timedOut {
+        let expectation = XCTestExpectation()
+        wait(interval: 1) { [unowned self] in
             XCTAssertEqual(sut.moviesList.count, 20)
             XCTAssertEqual(sut.searchPageNumber, 3)
             sut.noMoreMovies = true
             sut.clearRequestParameters()
             XCTAssertEqual(sut.moviesList.count, 0)
             XCTAssertEqual(sut.searchPageNumber, 1)
-        } else {
-            XCTFail("something went wrong")
+            expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 2)
     }
 
 }

@@ -239,11 +239,11 @@
 		083BC85725E57C6600F8833F /* MovieAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				089A426F25E97B4F00CA612C /* Supporting Files */,
+				089A428025E97CAB00CA612C /* Helpers */,
 				089A431525EA996A00CA612C /* Extension */,
 				089A42F125EA980C00CA612C /* Snapshot tests */,
 				089A42B225E9927300CA612C /* Modules */,
-				089A428025E97CAB00CA612C /* Helpers */,
-				089A426F25E97B4F00CA612C /* Supporting Files */,
 				089A425D25E9782700CA612C /* API */,
 				083BC85A25E57C6600F8833F /* Info.plist */,
 			);
@@ -394,8 +394,8 @@
 		089A425D25E9782700CA612C /* API */ = {
 			isa = PBXGroup;
 			children = (
-				089A428925E97D4100CA612C /* Responses */,
 				089A425E25E9784000CA612C /* Requests */,
+				089A428925E97D4100CA612C /* Responses */,
 				089A429A25E981B400CA612C /* APIClientConfigurationTests.swift */,
 				089A429F25E9822A00CA612C /* APIClientTests.swift */,
 			);

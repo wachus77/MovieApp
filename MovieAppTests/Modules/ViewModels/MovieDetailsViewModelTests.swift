@@ -40,14 +40,13 @@ final class MovieDetailsViewModelTests: XCTestCase {
     func testGetMovieDetails() {
         sut.getMovieDetails()
 
-        let expect = expectation(description: "wait to get movie details")
-        let waitResult = XCTWaiter.wait(for: [expect], timeout: 1.0)
-        if waitResult == XCTWaiter.Result.timedOut {
+        let expectation = XCTestExpectation()
+        wait(interval: 1) { [unowned self] in
             XCTAssertEqual(sut.movieDetails?.title, "Marvel Super Hero Adventures: Frost Fight!")
             XCTAssertEqual(sut.movieDetails?.year, "2015")
             XCTAssertEqual(sut.movieDetails?.runtime, "73 min")
-        } else {
-            XCTFail("something went wrong")
+            expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 2)
     }
 }
