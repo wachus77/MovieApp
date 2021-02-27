@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  MovieApp
+
+  Created by TIWASZEK on 27/02/2021.
+  
+*/
+
+Global.back = "< Wróć";
+
+MovieListScreen.title = "Lista";
+MovieListScreen.noMorePlaces = "brak miejsc";
+MovieListScreen.searchMovie = "Szukaj filmu";
+
+MovieDetailsScreen.title = "Szczegóły";
+MovieDetailsScreen.plot = "Opis";
+MovieDetailsScreen.score = "Punkty";
+MovieDetailsScreen.reviews = "Recenzje";
+MovieDetailsScreen.boxOffice = "Budżet";
+MovieDetailsScreen.director = "Reżyser";
+MovieDetailsScreen.writer = "Scenarzysta";
+MovieDetailsScreen.actors = "Aktorzy";
+
+Alerts.ok = "ok";
+Alerts.error = "błąd";

@@ -21,8 +21,7 @@ struct MovieDetailsRequest: APIRequestModel {
 
     /// - SeeAlso: APIRequestModel.path
     var path: String {
-        // TODO
-        return ""
+        return .empty
     }
 
     var queryItems: [URLQueryItem]? {

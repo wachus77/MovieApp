@@ -168,8 +168,7 @@ final class MovieDetailsView: BaseView {
         let label = UILabel()
         label.textColor = .orange
         label.numberOfLines = 1
-        // todo localizable
-        label.text = "Plot"
+        label.text = Localizable.MovieDetailsScreen.plot.text
         return label
     }()
 
@@ -203,8 +202,7 @@ final class MovieDetailsView: BaseView {
         let label = UILabel()
         label.textColor = .orange
         label.numberOfLines = 1
-        // todo localizable
-        label.text = "Score"
+        label.text = Localizable.MovieDetailsScreen.score.text
         return label
     }()
 
@@ -229,8 +227,7 @@ final class MovieDetailsView: BaseView {
         let label = UILabel()
         label.textColor = .orange
         label.numberOfLines = 1
-        // todo localizable
-        label.text = "Reviews"
+        label.text = Localizable.MovieDetailsScreen.reviews.text
         return label
     }()
 
@@ -255,8 +252,7 @@ final class MovieDetailsView: BaseView {
         let label = UILabel()
         label.textColor = .orange
         label.numberOfLines = 1
-        // todo localizable
-        label.text = "Box Office"
+        label.text = Localizable.MovieDetailsScreen.boxOffice.text
         return label
     }()
 
@@ -315,8 +311,7 @@ final class MovieDetailsView: BaseView {
         label.setContentCompressionResistancePriority(.defaultHigh + 1, for: .horizontal)
         label.textColor = .orange
         label.numberOfLines = 1
-        // todo localizable
-        label.text = "Director"
+        label.text = Localizable.MovieDetailsScreen.director.text
         return label
     }()
 
@@ -337,8 +332,7 @@ final class MovieDetailsView: BaseView {
         let label = UILabel()
         label.textColor = .orange
         label.numberOfLines = 1
-        // todo localizable
-        label.text = "Writer"
+        label.text = Localizable.MovieDetailsScreen.writer.text
         return label
     }()
 
@@ -359,8 +353,7 @@ final class MovieDetailsView: BaseView {
         let label = UILabel()
         label.textColor = .orange
         label.numberOfLines = 1
-        // todo localizable
-        label.text = "Actors"
+        label.text = Localizable.MovieDetailsScreen.actors.text
         return label
     }()
 

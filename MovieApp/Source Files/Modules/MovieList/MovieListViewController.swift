@@ -28,8 +28,7 @@ final class MovieListViewController: BaseViewController<MovieListView, MovieList
     /// - SeeAlso: BaseViewController.setupView
     override func setupView() {
         view.accessibilityIdentifier = "view/movieList"
-        // todo localizable
-        navigationItem.title = "Movie List"
+        navigationItem.title = Localizable.MovieListScreen.title.text
 
         setupSearchController()
 
@@ -77,8 +76,7 @@ final class MovieListViewController: BaseViewController<MovieListView, MovieList
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        // todo localizable
-        searchController.searchBar.placeholder = "Search movie"
+        searchController.searchBar.placeholder = Localizable.MovieListScreen.searchMovie.text
         navigationItem.searchController = searchController
     }
 }

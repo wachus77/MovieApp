@@ -14,8 +14,7 @@ final class MovieDetailsViewController: BaseViewController<MovieDetailsView, Mov
     /// - SeeAlso: BaseViewController.setupView
     override func setupView() {
         view.accessibilityIdentifier = "view/movieDetails"
-        // todo localizable
-        navigationItem.title = "Movie Details"
+        navigationItem.title = Localizable.MovieDetailsScreen.title.text
     }
 
     /// - SeeAlso: BaseViewController.setupProperties
@@ -42,9 +41,8 @@ final class MovieDetailsViewController: BaseViewController<MovieDetailsView, Mov
     // MARK: Helpers
 
     func showError(message: String) {
-        // todo localizable
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+        let alert = UIAlertController(title: Localizable.Alerts.error.text, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: Localizable.Alerts.ok.text, style: .default) { (_) in
             self.navigationController?.popViewController(animated: true)
         }
         alert.addAction(okAction)

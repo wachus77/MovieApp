@@ -12,8 +12,7 @@ final class PopBackView: UIView {
 
     private lazy var textLabel: UILabel = {
         let label = UILabel()
-        // TODO localizable
-        label.text = "< Back"
+        label.text = Localizable.Global.back.text
         label.textColor = UIColor(light: .black, dark: .white)
         label.accessibilityIdentifier = "Back"
         return label

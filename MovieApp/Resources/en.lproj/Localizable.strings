@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  MovieApp
+
+  Created by TIWASZEK on 27/02/2021.
+  
+*/
+
+Global.back = "< Back";
+
+MovieListScreen.title = "Movie List";
+MovieListScreen.noMorePlaces = "no more places";
+MovieListScreen.searchMovie = "Search movie";
+
+MovieDetailsScreen.title = "Movie Details";
+MovieDetailsScreen.plot = "Plot";
+MovieDetailsScreen.score = "Score";
+MovieDetailsScreen.reviews = "Reviews";
+MovieDetailsScreen.boxOffice = "Box Office";
+MovieDetailsScreen.director = "Director";
+MovieDetailsScreen.writer = "Writer";
+MovieDetailsScreen.actors = "Actors";
+
+Alerts.ok = "ok";
+Alerts.error = "error";
