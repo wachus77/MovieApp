@@ -77,6 +77,7 @@ final class MovieListViewController: BaseViewController<MovieListView, MovieList
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = Localizable.MovieListScreen.searchMovie.text
+        searchController.searchBar.accessibilityIdentifier = "search-bar"
         navigationItem.searchController = searchController
     }
 }
