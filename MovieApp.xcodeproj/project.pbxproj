@@ -55,6 +55,10 @@
 		089A42B525E992F600CA612C /* MovieDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A42B425E992F600CA612C /* MovieDetailsViewModelTests.swift */; };
 		089A42BD25E9930B00CA612C /* MovieListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A42BC25E9930B00CA612C /* MovieListViewModelTests.swift */; };
 		089A42ED25EA97A700CA612C /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 089A42EC25EA97A700CA612C /* SnapshotTesting */; };
+		089A42F325EA983300CA612C /* MovieListViewControllerSnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A42F225EA983300CA612C /* MovieListViewControllerSnapTests.swift */; };
+		089A431125EA98FC00CA612C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A431025EA98FC00CA612C /* UIViewController.swift */; };
+		089A431725EA997600CA612C /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A431625EA997600CA612C /* XCTestCase.swift */; };
+		089A431F25EA9A1B00CA612C /* TestDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A431E25EA9A1B00CA612C /* TestDevices.swift */; };
 		08BAD08225E68EB6007795DC /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08125E68EB6007795DC /* Movie.swift */; };
 		08BAD08B25E68F8A007795DC /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08A25E68F8A007795DC /* MovieCell.swift */; };
 		08BAD09025E6A6C2007795DC /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */; };
@@ -147,6 +151,10 @@
 		089A42AA25E9830B00CA612C /* APIMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMocks.swift; sourceTree = "<group>"; };
 		089A42B425E992F600CA612C /* MovieDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		089A42BC25E9930B00CA612C /* MovieListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModelTests.swift; sourceTree = "<group>"; };
+		089A42F225EA983300CA612C /* MovieListViewControllerSnapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewControllerSnapTests.swift; sourceTree = "<group>"; };
+		089A431025EA98FC00CA612C /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		089A431625EA997600CA612C /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
+		089A431E25EA9A1B00CA612C /* TestDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDevices.swift; sourceTree = "<group>"; };
 		08BAD08125E68EB6007795DC /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		08BAD08A25E68F8A007795DC /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		08BAD08F25E6A6C2007795DC /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
@@ -229,6 +237,8 @@
 		083BC85725E57C6600F8833F /* MovieAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				089A431525EA996A00CA612C /* Extension */,
+				089A42F125EA980C00CA612C /* Snapshot tests */,
 				089A42B225E9927300CA612C /* Modules */,
 				089A428025E97CAB00CA612C /* Helpers */,
 				089A426F25E97B4F00CA612C /* Supporting Files */,
@@ -326,6 +336,7 @@
 				08BAD0B725E6B90C007795DC /* Dictionary.swift */,
 				08BAD0C625E6BA0E007795DC /* NSError.swift */,
 				08BAD0D525E6BD58007795DC /* URLSession.swift */,
+				089A431025EA98FC00CA612C /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -455,6 +466,23 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		089A42F125EA980C00CA612C /* Snapshot tests */ = {
+			isa = PBXGroup;
+			children = (
+				089A42F225EA983300CA612C /* MovieListViewControllerSnapTests.swift */,
+				089A431E25EA9A1B00CA612C /* TestDevices.swift */,
+			);
+			path = "Snapshot tests";
+			sourceTree = "<group>";
+		};
+		089A431525EA996A00CA612C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				089A431625EA997600CA612C /* XCTestCase.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		08BAD07C25E68A4E007795DC /* Resources */ = {
@@ -728,6 +756,7 @@
 				083BC84425E57C6400F8833F /* SceneDelegate.swift in Sources */,
 				08BAD0D125E6BC57007795DC /* DefaultAPIClient.swift in Sources */,
 				08BAD0B825E6B90C007795DC /* Dictionary.swift in Sources */,
+				089A431125EA98FC00CA612C /* UIViewController.swift in Sources */,
 				089A42AB25E9830B00CA612C /* APIMocks.swift in Sources */,
 				08BAD0A425E6B713007795DC /* APIClientConfiguration.swift in Sources */,
 				08BAD0E425E6C2D5007795DC /* MovieSearchResponse.swift in Sources */,
@@ -742,13 +771,16 @@
 			files = (
 				089A42B525E992F600CA612C /* MovieDetailsViewModelTests.swift in Sources */,
 				089A429325E97E9000CA612C /* MovieDetailsResponseTests.swift in Sources */,
+				089A431725EA997600CA612C /* XCTestCase.swift in Sources */,
 				089A428225E97CC300CA612C /* TestBundleJSONDecoder.swift in Sources */,
 				089A429B25E981B400CA612C /* APIClientConfigurationTests.swift in Sources */,
 				089A42A025E9822A00CA612C /* APIClientTests.swift in Sources */,
 				089A426025E9788900CA612C /* MovieSearchRequestTests.swift in Sources */,
+				089A431F25EA9A1B00CA612C /* TestDevices.swift in Sources */,
 				089A428B25E97D5A00CA612C /* MovieSearchResponseTests.swift in Sources */,
 				089A426825E97A8900CA612C /* MovieDetailsRequestTests.swift in Sources */,
 				089A42BD25E9930B00CA612C /* MovieListViewModelTests.swift in Sources */,
+				089A42F325EA983300CA612C /* MovieListViewControllerSnapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
