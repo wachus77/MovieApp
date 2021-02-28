@@ -2,7 +2,7 @@
 
 I used **MVVM** pattern to get rid off massive view controllers (using delegation, closures, property observers)
 
-I created **views in code** - it’s a good approach to avoid merge conflicts and to easily reuse part of the view
+I created **views in code** - it’s a good approach to avoid merge conflicts (or easier to solve them) and to easily reuse part of the view
 
 I used **Coordinators** (responsible for the navigation flow - it is easier to manage transitions)
 
