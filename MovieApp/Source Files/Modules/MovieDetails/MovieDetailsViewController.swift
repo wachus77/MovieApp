@@ -19,9 +19,7 @@ final class MovieDetailsViewController: BaseViewController<MovieDetailsView, Mov
 
     /// - SeeAlso: BaseViewController.setupProperties
     override func setupProperties() {
-        DispatchQueue.main.async {
-            self.viewModel.getMovieDetails()
-        }
+        self.viewModel.getMovieDetails()
     }
 
     /// - SeeAlso: BaseViewController.setupCallbacks
