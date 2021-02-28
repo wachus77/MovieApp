@@ -18,6 +18,8 @@ I used **DiffableSourceData** approach which manages updates for collection view
 
 I used **Compositional layouts** for collection view, which are a declarative kind of API that allows us to build large layouts by stitching together smaller layout groups
 
+I added **fastlane** configuration to automate process of testing and releasing application in terms of CI and CD
+
 
 ## SCREENSHOTS:
 
