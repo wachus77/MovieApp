@@ -61,6 +61,8 @@ extension MovieListView: ViewSetupable {
     /// - SeeAlso: ViewSetupable.setupProperties
     func setupProperties() {
         backgroundColor = UIColor(light: .white, dark: .black)
+        collectionView.backgroundColor = UIColor(light: .white, dark: .black)
+        errorLabel.textColor = UIColor(light: .black, dark: .white)
     }
 
     /// - SeeAlso: ViewSetupable.setupViewHierarchy

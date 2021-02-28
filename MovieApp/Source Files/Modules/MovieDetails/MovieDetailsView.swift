@@ -60,7 +60,7 @@ final class MovieDetailsView: BaseView {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(light: .black, dark: .white)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -108,7 +108,7 @@ final class MovieDetailsView: BaseView {
 
     private let categoryLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(light: .black, dark: .white)
         label.numberOfLines = 0
         label.lineBreakMode = .byTruncatingTail
         label.textAlignment = .center
@@ -117,7 +117,7 @@ final class MovieDetailsView: BaseView {
 
     private let runtimeLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(light: .black, dark: .white)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
@@ -126,7 +126,7 @@ final class MovieDetailsView: BaseView {
 
     private let ratingLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(light: .black, dark: .white)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
@@ -135,7 +135,7 @@ final class MovieDetailsView: BaseView {
 
     private let dotLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(light: .black, dark: .white)
         label.numberOfLines = 1
         label.text = "·"
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -145,7 +145,7 @@ final class MovieDetailsView: BaseView {
 
     private let dotSecondLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(light: .black, dark: .white)
         label.numberOfLines = 1
         label.text = "·"
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -174,7 +174,7 @@ final class MovieDetailsView: BaseView {
 
     private let plotLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(light: .black, dark: .white)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -208,7 +208,7 @@ final class MovieDetailsView: BaseView {
 
     private let scoreLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(light: .black, dark: .white)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -233,7 +233,7 @@ final class MovieDetailsView: BaseView {
 
     private let votesLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(light: .black, dark: .white)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -258,7 +258,7 @@ final class MovieDetailsView: BaseView {
 
     private let boxOfficeLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(light: .black, dark: .white)
         label.numberOfLines = 0
         label.lineBreakMode = .byCharWrapping
         label.textAlignment = .center
@@ -318,7 +318,7 @@ final class MovieDetailsView: BaseView {
 
     private let directorLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(light: .black, dark: .white)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -339,7 +339,7 @@ final class MovieDetailsView: BaseView {
 
     private let writerLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(light: .black, dark: .white)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -360,7 +360,7 @@ final class MovieDetailsView: BaseView {
 
     private let actorsLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(light: .black, dark: .white)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -381,7 +381,7 @@ final class MovieDetailsView: BaseView {
 
         let ratingLabelString = NSMutableAttributedString(string: "")
         let ratingAttachment = NSTextAttachment()
-        ratingAttachment.image = UIImage(systemName: "star", withConfiguration: config)
+        ratingAttachment.image = UIImage(systemName: "star", withConfiguration: config)?.withTintColor(.orange)
         let ratingImage = NSAttributedString(attachment: ratingAttachment)
         ratingLabelString.append(ratingImage)
         ratingLabelString.append(NSAttributedString(string: " \(movieDetails.imdbRating)"))
@@ -393,7 +393,7 @@ final class MovieDetailsView: BaseView {
 
         let boxOfficeLabelString = NSMutableAttributedString(string: "")
         let boxOfficeAttachment = NSTextAttachment()
-        boxOfficeAttachment.image = UIImage(systemName: "dollarsign.circle.fill", withConfiguration: config)
+        boxOfficeAttachment.image = UIImage(systemName: "dollarsign.circle.fill", withConfiguration: config)?.withTintColor(.orange)
         let boxOfficeImage = NSAttributedString(attachment: boxOfficeAttachment)
         boxOfficeLabelString.append(boxOfficeImage)
         boxOfficeLabelString.append(NSAttributedString(string: " \(movieDetails.boxOffice)"))
