@@ -1,0 +1,86 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+default_simulator = "iPhone 8"
+
+platform :ios do
+
+    desc "Run UI tests, example: bundle exec fastlane ios UITests 'device:iPhone 8 (12.4)'"
+    lane :UITests do |options|
+        devices = options[:device].nil? ? [default_simulator] : options[:device]
+        runTests(
+                 scheme: "MovieAppUITests",
+                 devices: devices,
+                 try_count: 3, # retry _failing_ tests up to three times^1.
+                 parallel_testrun_count: 2 # run subsets of your tests on parallel simulators^2,
+                 )
+    end
+
+    desc "Run unit tests"
+    lane :UnitTests do
+        runTests(
+                 scheme: "MovieApp",
+                 try_count: 3, # retry _failing_ tests up to three times^1.
+                 parallel_testrun_count: 2 # run subsets of your tests on parallel simulators^2
+                 )
+    end
+
+    lane :runTests do |options|
+        scheme = options[:scheme]
+        devices = options[:devices].nil? ? [default_simulator] : options[:devices]
+        skip_build = options[:skip_build].nil? ? true : options[:skip_build]
+        only_testing = options[:only_testing]
+        skip_trainer = options[:skip_trainer].nil? ? true : options[:skip_trainer]
+        code_coverage = options[:code_coverage].nil? ? true : options[:code_coverage]
+        result_bundle = options[:result_bundle].nil? ? true : options[:result_bundle]
+        min_code_coverage = options[:min_code_coverage].nil? ? 0 : options[:min_code_coverage]
+        fail_build = options[:fail_build].nil? ? true : options[:fail_build]
+        try_count = options[:try_count].nil? ? 1 : options[:try_count]
+        parallel_testrun_count = options[:parallel_testrun_count].nil? ? 1 : options[:parallel_testrun_count]
+        include_in_summary_coverage = options[:include_in_summary_coverage].nil? ? true : options[:include_in_summary_coverage]
+
+        multi_scan(
+                   scheme: scheme,
+                   devices: devices,
+                   skip_build: skip_build,
+                   only_testing: only_testing,
+                   code_coverage: code_coverage,
+                   result_bundle: result_bundle,
+                   fail_build: fail_build,
+                   try_count: try_count,
+                   parallel_testrun_count: parallel_testrun_count,
+                   output_types: "html, junit, xcresult"
+                   )
+
+                   if !skip_trainer
+                       trainer(path: "./fastlane/test_output", output_directory: "./trainer_output")
+                   end
+
+                   # check code coverage
+                   if min_code_coverage > 0
+                       sh("cd ..; bash ./coverage.sh #{scheme} #{min_code_coverage}", error_callback: ->(result) { UI.test_failure!("The code coverage is too low") })
+                   end
+
+                   # copy xcresult to previous directory to create combined coverage
+                   if include_in_summary_coverage
+                       sh("mkdir -p ~/code_coverage/movie_app;rm -r ~/code_coverage/movie_app/#{scheme}.xcresult;cp -r test_output/report.xcresult ~/code_coverage/movie_app/#{scheme}.xcresult")
+                   end
+    end
+
+
+end
+

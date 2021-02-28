@@ -6,6 +6,8 @@ opt_in_rules:
 excluded:
 - Carthage
 - Pods
+- .build
+- DerivedData
 line_length:
     warning: 300
     error: 350
